@@ -24,7 +24,7 @@
   <header>
 
     <a href="https://linkedin.com/in/daniel-tjader" target="_blank" rel="noopener noreferrer">
-      <img src="img/icons/linkedin.svg" alt="linkedin icon" class="icons-nav" >
+      <img src="img/icons/linkedin.svg" alt="linkedin icon" class="icons-nav hover-scale" >
     </a>
 
   </header>
@@ -36,49 +36,48 @@
 
       <section id="learned">
         <figure>
-          <img src="img/icons/java.svg" alt="java icon" class="icons-learned" id="java">
+          <img src="img/icons/java.svg" alt="java icon" class="icons-learned hover-up" id="java">
           <figcaption>Java</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/intellij.svg" alt="intellij icon" class="icons-learned" id="intellij">
+          <img src="img/icons/intellij.svg" alt="intellij icon" class="icons-learned hover-up" id="intellij">
           <figcaption>IntelliJ Idea</figcaption>
         </figure>
 
         <figure>
-        <img src="img/icons/linux.svg" alt="linux icon" class="icons-learned" id="linux">
+        <img src="img/icons/linux.svg" alt="linux icon" class="icons-learned hover-up" id="linux">
           <figcaption>Linux</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/figma.svg" alt="figma icon" class="icons-learned" id="figma">
+          <img src="img/icons/figma.svg" alt="figma icon" class="icons-learned hover-up" id="figma">
           <figcaption>Figma</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/mysql.svg" alt="mysql icon" class="icons-learned" id="mysql">
+          <img src="img/icons/mysql.svg" alt="mysql icon" class="icons-learned hover-up" id="mysql">
           <figcaption>mySQL</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/html5.svg" alt="html5 icon" class="icons-learned" id="html5">
+          <img src="img/icons/html5.svg" alt="html5 icon" class="icons-learned hover-up" id="html5">
           <figcaption>HTML5</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/javascript.svg" alt="javascript icon" class="icons-learned" id="javascript">
+          <img src="img/icons/javascript.svg" alt="javascript icon" class="icons-learned hover-up" id="javascript">
           <figcaption>JavaScript</figcaption>
         </figure>
 
         <figure>
-          <img src="img/icons/css3.svg" alt="css3 icon" class="icons-learned" id="css3">
+          <img src="img/icons/css3.svg" alt="css3 icon" class="icons-learned hover-up" id="css3">
           <figcaption>CSS3</figcaption>
         </figure>
         
       </section> <!-- End of learned -->
 
-      <hr class ="divider">
-
+      <hr class ="main-divider">
       <section id="code">
     <code> &lt;<em class ="code-element">p</em> <em class ="code-attribute">id</em>="<em class="code-value">status</em>"&gt; currently learning...&lt;/<em class="code-element">p</em>&gt;</code>
 
@@ -87,17 +86,17 @@
     <section id="currently">
 
       <figure>
-        <img src="img/icons/typescript.svg" alt="typescript icon" class="icons-currently" id="typescript">
+        <img src="img/icons/typescript.svg" alt="typescript icon" class="icons-currently hover-up" id="typescript">
         <figcaption>TypeScript</figcaption>
       </figure>
 
       <figure>
-        <img src="img/icons/react.svg" alt="react icon" class="icons-currently" id="react">
+        <img src="img/icons/react.svg" alt="react icon" class="icons-currently hover-up" id="react">
         <figcaption>React</figcaption>
       </figure>
 
       <figure>
-      <img src="img/icons/gcp.svg" alt="google cloud platform icon" class="icons-currently" id="linux">
+      <img src="img/icons/gcp.svg" alt="google cloud platform icon" class="icons-currently hover-up" id="linux">
         <figcaption>Google Cloud</figcaption>
       </figure>
 
@@ -110,7 +109,7 @@
 
           
         <h2 id = presentation-title>Who am I?</h2>
-        <div id="title-stroke"></div>
+        <div id="title-divider"></div>
 
         <p>I am 27 years old, currently studying the last year of System Science at Luleå University of Techology. 
         <br><br>
@@ -135,103 +134,113 @@
 
     <section id="projects">
 
-      <section id ="project-info">
-        <h2 id = presentation-title>Projects</h2>
-        <div id="title-stroke"></div>
+
+      <section id="projects-container">
+
+
+        <section id ="project-info">
+          <h2 id = presentation-title>Projects</h2>
+          <div id="title-divider"></div>
+        </section>
+  
+        <section id ="cards">
+  
+          <article id="webscraper" class="hover-up">
+            <section class="upper">
+              <img src="img/icons/robot.svg" alt="robot icon">
+            </section>
+           
+           <section class ="lower">
+  
+            <section class="main">
+              <h3>WebScraper</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus odio adipisci, laboriosam deserunt consectetur beatae.</p>
+            </section>
+    
+            <hr>
+    
+            <section class="meta">
+              <section>
+                <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
+                  <img src="img/icons/github.svg" alt="github icon">
+                  <p class="username">@danieltjader</p>
+                </a>
+              </section>
+              <p class="technologies">Java, Selenium, Hibernate</p>
+            </section>
+  
+           </section>
+          </article>
+  
+          <article id="dashboard"  class="hover-up">
+            <section class="upper">
+              <img src="img/icons/analytics.svg" alt="analytics icon">
+            </section>
+           
+           <section class ="lower">
+            <section class="main">
+    
+              <h3>Dashboard</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique exercitationem cum rerum nulla blanditiis voluptatibus!</p>
+    
+            </section>
+    
+            <hr>
+    
+            <section class="meta">
+             
+              <section>
+            
+                <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
+                  <img src="img/icons/github.svg" alt="github icon">
+                  <p class="username">@danieltjader</p>
+                </a>
+              </section>
+    
+              <p class="technologies">Javascript, React, TypeScript</p>
+        
+            </section>
+           </section>
+          </article>
+  
+          <article id="coming">
+            <section class="upper">
+              <img src="img/icons/clock.svg" alt="clock icon">
+            </section>
+           
+           <section class ="lower">
+            <section class="main">
+    
+              <h3>Restaurant - Upcoming</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ex dignissimos laboriosam minima exercitationem dolores.</p>
+    
+            </section>
+    
+            <hr>
+    
+            <section class="meta">
+             
+              <section>
+            
+                <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
+                  <img src="img/icons/github.svg" alt="github icon">
+                  <p class="username">@danieltjader</p>
+                </a>
+              </section>
+    
+              <p class="technologies">HTML5, CSS3, Javascript</p>
+        
+            </section>
+           </section>
+          </article>
+  
+        </section>
+
+
+
       </section>
 
-      <section id ="cards">
-
-        <article id="webscraper">
-          <section class="upper">
-            <img src="img/icons/robot.svg" alt="robot icon">
-          </section>
-         
-         <section class ="lower">
-
-          <section class="main">
-            <h3>WebScraper</h3>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus odio adipisci, laboriosam deserunt consectetur beatae.</p>
-          </section>
-  
-          <hr>
-  
-          <section class="meta">
-            <section>
-              <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
-                <img src="img/icons/github.svg" alt="github icon">
-                <p class="username">@danieltjader</p>
-              </a>
-            </section>
-            <p class="technologies">Java, Selenium, Hibernate</p>
-          </section>
-
-         </section>
-        </article>
-
-        <article id="dashboard">
-          <section class="upper">
-            <img src="img/icons/analytics.svg" alt="analytics icon">
-          </section>
-         
-         <section class ="lower">
-          <section class="main">
-  
-            <h3>Dashboard</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique exercitationem cum rerum nulla blanditiis voluptatibus!</p>
-  
-          </section>
-  
-          <hr>
-  
-          <section class="meta">
-           
-            <section>
-          
-              <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
-                <img src="img/icons/github.svg" alt="github icon">
-                <p class="username">@danieltjader</p>
-              </a>
-            </section>
-  
-            <p class="technologies">Javascript, React, TypeScript</p>
-      
-          </section>
-         </section>
-        </article>
-
-        <article id="coming">
-          <section class="upper">
-            <img src="img/icons/clock.svg" alt="clock icon">
-          </section>
-         
-         <section class ="lower">
-          <section class="main">
-  
-            <h3>Restaurant - Upcoming</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ex dignissimos laboriosam minima exercitationem dolores.</p>
-  
-          </section>
-  
-          <hr>
-  
-          <section class="meta">
-           
-            <section>
-          
-              <a href="https:/github.com/danieltjader" target="_blank" rel="noopener noreferrer">
-                <img src="img/icons/github.svg" alt="github icon">
-                <p class="username">@danieltjader</p>
-              </a>
-            </section>
-  
-            <p class="technologies">HTML5, CSS3, Javascript</p>
-      
-          </section>
-         </section>
-        </article>
-
-      </section>
+    
 
     </section>
 
