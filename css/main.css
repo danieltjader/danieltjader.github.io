@@ -506,6 +506,7 @@ footer .footer-header{
   /* Projects page */ 
 
   #project-info {
+    width: 80%;
     margin: 0 auto;
     margin-bottom: var(--medium-margin);
   }
