@@ -433,11 +433,7 @@ footer .footer-header{
 
 }
 
-
 @media only screen and (max-width: 1000px) {
-
-
- 
 
   #projects {
     padding: var(--medium-padding);
@@ -446,7 +442,6 @@ footer .footer-header{
   .wrapper{
     width: 95%;
   }
-
 
   /* Landing page */ 
 
@@ -502,7 +497,6 @@ footer .footer-header{
   .presentation-meta {
     width: 90%;
     margin: var(--medium-margin) auto;
-
   }
 
   #profile-picture figcaption{
@@ -562,6 +556,11 @@ footer .footer-header{
 
   #projects article p {
     margin: 1rem 0;
+  }
+
+  #project-info{
+    align-self:flex-end;
+    width: 80%;
   }
 
   p {
