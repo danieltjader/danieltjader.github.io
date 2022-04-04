@@ -133,7 +133,7 @@ footer .footer-header{
 
 .wrapper {
   width: 80%;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column; 
 }
@@ -317,7 +317,6 @@ footer .footer-header{
 }
 
 #projects {
-  
   display: flex;
   flex-direction: column;
   justify-content:space-between;
@@ -327,7 +326,8 @@ footer .footer-header{
 }
 
 #project-info{
-  width: 100%;
+  align-self:flex-end;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items:flex-end;
@@ -437,6 +437,8 @@ footer .footer-header{
 @media only screen and (max-width: 1000px) {
 
 
+ 
+
   #projects {
     padding: var(--medium-padding);
   }
@@ -444,6 +446,7 @@ footer .footer-header{
   .wrapper{
     width: 95%;
   }
+
 
   /* Landing page */ 
 
@@ -491,6 +494,7 @@ footer .footer-header{
   }
  
   #presentation {
+    margin: 0 auto;
     text-align: center;
     width: 90%;
   }
@@ -507,6 +511,11 @@ footer .footer-header{
 
   /* Projects page */ 
 
+  #project-info {
+    margin: 0 auto;
+    margin-bottom: var(--medium-margin);
+  }
+
   #project-info h2 {
     margin: var(--small-margin) auto;
    }
@@ -514,7 +523,7 @@ footer .footer-header{
   #project-info p{
     text-align: center;
     margin: var(--medium-margin) auto;
-    width: 300px;
+    width: 50%;
   }
 
   #cards {
@@ -522,15 +531,7 @@ footer .footer-header{
     flex-direction: column;
   }
 
-  #project-info {
-    margin: 0 auto;
-    margin-bottom: var(--medium-margin);
-  }
 
-  #project-info p{
-    text-align: center;
-    width: 300px;
-  }
   
 }
 

@@ -4,7 +4,7 @@ const timeline = gsap.timeline({defaults: {
   opacity: 0
 }});
 
-timeline.from('.icons-nav', {ease: 'Power2.easeOut', y: -100}, .7)
+timeline.from('.icons-nav', {ease: 'Power2.easeOut', y: -100}, 2)
         .from('.icons-learned', {stagger: .1, duration: .1}, .6)
         .from('.icons-currently', {stagger: .1, duration: .1}, 1.6)
         .from('#code', {duration: 1, y: '50px'}, .8)
