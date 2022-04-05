@@ -126,7 +126,7 @@ footer p {
 }
 
 footer .footer-header{
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -340,7 +340,6 @@ footer .footer-header{
 #project-info p{
   text-align: right;
   right: 0;
-  
 }
 
 #cards {
@@ -534,6 +533,11 @@ footer .footer-header{
 
   #project-info{
     margin-bottom: 0;
+  }
+
+  #project-info p{
+    margin: var(--medium-margin) auto;
+    width: 90%;
   }
 
   #learned{
