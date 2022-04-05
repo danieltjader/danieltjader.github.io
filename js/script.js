@@ -4,13 +4,13 @@ const timeline = gsap.timeline({defaults: {
   opacity: 0
 }});
 
-timeline.from('.icons-nav', {ease: 'Power2.easeOut', y: -100}, 2)
-        .from('.icons-learned', {stagger: .1, duration: .1}, .6)
-        .from('.icons-currently', {stagger: .1, duration: .1}, 1.6)
-        .from('#code', {duration: 1, y: '50px'}, .8)
-        .from('#landing-title', {ease: 'Power2.easeOut', x: -800}, 0)
+timeline.from('#landing-title', {ease: 'Power2.easeOut', x: -800}, 0)
         .from('.main-divider', {ease: 'Power2.easeOut', x: -800}, 0)
-        .from('#landing-title em', {ease: 'Power2.easeOut', y: -100}, '<1');
+        .from('.icons-learned', {stagger: .1, duration: .1}, .6)
+        .from('#code', {duration: 1, y: '50px'}, .8)
+        .from('.icons-currently', {stagger: .1, duration: .1}, 1.6)
+        .from('#landing-title em', {ease: 'Power2.easeOut', y: -100}, 2)
+        .from('.icons-nav', {ease: 'Power2.easeOut', y: -100}, 2);
         
 
 gsap.from("#about", {
