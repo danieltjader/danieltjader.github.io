@@ -16,22 +16,22 @@ timeline.from('#landing-title', {ease: 'Power2.easeOut', x: -800}, 0)
 gsap.from("#about", {
   scrollTrigger: '#about', 
   opacity: 0,
-  duration: 1,
+  duration: 2,
   ease: 'Power2.easeOut',
-  y: 300
+  y: 200
 });
 
 gsap.from("#projects", {
   scrollTrigger: '#projects', 
   opacity: 0,
-  duration: 1,
+  duration: 2,
   ease: 'Power2.easeOut', 
-  y: 300
+  y: 200
 });
 
 gsap.from("footer", {
   scrollTrigger: 'footer', 
   opacity: 0,
-  duration: 1,
+  duration: 2,
   ease: 'Power2.easeOut', 
 });
