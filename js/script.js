@@ -6,7 +6,7 @@ gsap.defaults({
 
 gsap.timeline().from('#landing-title', {x: -800}, 0)
                 .from('.main-divider', {x: -800}, 0)
-                .from('.icons-learned', {stagger: .1, duration: .3, scale: 0.1 }, .6)
+                .from('.icons-learned', {stagger: .1, duration: .3, scale: 0.1,  filter: "grayscale(1)"}, .6)
                 .from('#code', {duration: 1, y: '50px'}, .8)
                 .from('.icons-currently', {stagger: .1, duration: .3, scale: 0.1}, 1.6)
                 .from('#landing-title em', {y: -100}, 2)

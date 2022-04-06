@@ -71,28 +71,6 @@ h1 {
   letter-spacing: 1px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(26, 26, 26, 0.02));
   line-height: 0.7em;
-  animation: animateGlow 3s linear infinite;
-  z-index: 1;
-}
-
-@keyframes animateGlow {
-
-  0%,18%,20%,50.1%,60%,65.1%,80%,90.1%,92% {
-    color: #ededed;
-    text-shadow: none;
-  }
-
-  18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100%{
-    color: var(--light-color);
-    text-shadow: 0 0 10px rgba(70, 76, 78, 0.8),
-    0 0 20px rgba(134, 214, 239, 0.8),
-    0 0 40px rgba(134, 214, 239, 0.8),
-    0 0 80px rgba(134, 214, 239, 0.8),
-    0 0 160px rgba(134, 214, 239, 0.8)
-  }
-
-
-
 }
 
 h1 em {
