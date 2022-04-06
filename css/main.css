@@ -416,12 +416,9 @@ footer .footer-header{
 .sign-coming {
   position: absolute;
   display: block;
-  padding-left: 500px;
-  margin: auto 0 auto auto;
   width: 140px;
-  height: 140px;
+  height: 146px;
   background: url(../img/icons/sign.svg) center no-repeat;
-
 }
 
 

@@ -17,22 +17,15 @@ gsap.from("#about", {
   scrollTrigger: {
    trigger: '#about',
    scrub: 1,
-   start: "top 95%",
-   end: "bottom 60%"
   },
   duration: 2,
-  ease: "all 1s ease",
-  y: 200,
 });
 
 gsap.from("#projects", {
   scrollTrigger: {
     trigger: '#projects',
     scrub: 1,
-    start: "top 95%",
-    end: "bottom 60%"
    },
-   ease: "all 1s ease",
    duration: 2,
    y: 200
 });
