@@ -354,8 +354,8 @@ footer .footer-header{
 #projects article {
   margin: var(--small-margin);
   color: var(--dark-color);
-  min-width: 300px;
-  max-width: 350px;
+  width: 350px;
+  transition: all 0.25s ease-in-out;
 }
 
 #coming  p {
@@ -406,6 +406,18 @@ footer .footer-header{
   font-size: var(--small-p);
   margin: 0;
 }
+
+.sign-coming {
+  position: absolute;
+  display: block;
+  padding-left: 500px;
+  margin: auto 0 auto auto;
+  width: 140px;
+  height: 140px;
+  background: url(../img/icons/sign.svg) center no-repeat;
+}
+
+
 
 #projects hr{
   margin: var(--small-margin) 0;
