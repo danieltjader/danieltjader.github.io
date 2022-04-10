@@ -7,7 +7,7 @@ gsap.defaults({
 
 gsap.timeline().from('#landing-title', {x: -800}, 0)
                 .from('.main-divider', {x: -800}, 0)
-                .from('.icons-learned', {stagger: .1, duration: .5, scale: 0.1,  filter: "grayscale(1)"}, .8)
+                .from('.icons-learned', {stagger: .1, duration: .5, scale: 0.1}, .8)
                 .from('#code', {duration: 5}, 1.8)
                 .from('.icons-currently', {stagger: .1, duration: .5, scale: 0.1}, 1.3)
                 .from('#landing-title em', {y: -100, duration: 5}, 1.8)
@@ -24,7 +24,9 @@ gsap.from("#about", {
 gsap.from("#projects", {
   scrollTrigger: {
     trigger: '#projects',
-    scrub: 1,
+    scrub: 2,
+    start: "top 80%",
+    end: "bottom 80%"
    },
    duration: 2,
    y: 200
