@@ -26,7 +26,7 @@ gsap.from("#projects", {
     trigger: '#projects',
     scrub: 2,
     start: "top 80%",
-    end: "bottom 80%"
+    end: "top 10%"
    },
    duration: 2,
    y: 200
