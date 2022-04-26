@@ -64,10 +64,10 @@ body {
 }
 
 h1 {
+  padding: var(--small-margin);
   font-family: var(--secondary-font);
   text-align: center;
   font-size: var(--largest-title);
-  margin-bottom: var(--medium-margin);
   letter-spacing: 1px;
   -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(26, 26, 26, 0.02));
   line-height: 0.7em;
@@ -241,7 +241,7 @@ footer .footer-header{
   font-size: var(--large-p);
   text-align: center;
   font-weight: 400;
-  margin: var(--large-margin) auto;
+  margin: var(--medium-margin) auto;
 }
 
 .code-element {
@@ -268,10 +268,6 @@ footer .footer-header{
   filter: grayscale(1);
 }
 
-
-#currently {
-  margin-bottom: var(--medium-margin);
-}
 
 /* About page - design */ 
 
