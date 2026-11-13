@@ -143,7 +143,7 @@ export const sv = {
 
   orgsPage: {
     title: 'För institutioner och organisationer',
-    description: 'Handledning, konsultation, utbildning, psykologisk och psykosocial utredning samt nätverksarbete för socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.',
+    description: 'Handledning, konsultation, utbildning, utredning och nätverksarbete för socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.',
     crumb: 'För organisationer',
     h1: 'För organisationer',
     lead: 'Vi samarbetar med socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.',
@@ -180,7 +180,7 @@ export const sv = {
 
   approachPage: {
     title: 'Så jobbar vi – det dialogiska synsättet',
-    description: 'Vår praktik bygger på dialogiska teorier: relationer, meningsskapande och etiskt ansvar i mötet med den Andre. Läs om hur vi arbetar med psykoterapi och psykiatri.',
+    description: 'Vår praktik bygger på dialogiska teorier: relationer, meningsskapande och etiskt ansvar i mötet med den Andre.',
     h1: 'Så jobbar vi',
     lead: 'Vår praktik bygger på det dialogiska synsättet.',
     intro: {

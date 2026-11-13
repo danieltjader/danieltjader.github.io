@@ -4,6 +4,10 @@ import siamak from './assets/siamak.webp';
 // Språkoberoende data. Översättningsbara texter finns i src/i18n/.
 export const site = {
   name: 'Dialogisk Praxis',
+  legalName: 'Dialogisk Praxis AB',
+  foundedYear: 2024,
+  themeColor: '#6f2a88',
+  backgroundColor: '#fbf8f3',
   url: 'https://dialogisk.se',
   email: 'info@dialogisk.se',
   address: {

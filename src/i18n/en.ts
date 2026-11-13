@@ -130,7 +130,7 @@ export const en: Content = {
 
   pricesPage: {
     title: 'Prices – psychotherapy and doctor visits in Stockholm',
-    description: 'Prices for psychotherapy, couples therapy, family therapy, doctor visits and certificates at Dialogisk Praxis in Stockholm. All prices include VAT; healthcare is VAT-exempt.',
+    description: 'Prices for psychotherapy, couples and family therapy, doctor visits and certificates at Dialogisk Praxis in Stockholm. Healthcare is VAT-exempt.',
     h1: 'Prices',
     lead: 'Clear prices for our most common services.',
     colService: 'Service',
@@ -140,7 +140,7 @@ export const en: Content = {
 
   orgsPage: {
     title: 'For institutions and organisations',
-    description: 'Supervision, consultation, training, psychological and psychosocial assessments and network work for social services, residential care homes, insurance companies and primary care centres.',
+    description: 'Supervision, consultation, training, assessments and network work for social services, care homes, insurers and primary care centres.',
     crumb: 'For organisations',
     h1: 'For organisations',
     lead: 'We work with social services, residential care homes, insurance companies and primary care centres.',
@@ -177,7 +177,7 @@ export const en: Content = {
 
   approachPage: {
     title: 'Our approach – the dialogical perspective',
-    description: 'Our practice is built on dialogical theories: relationships, meaning-making and ethical responsibility in the encounter with the Other. Read about how we work with psychotherapy and psychiatry.',
+    description: 'Our practice is built on dialogical theories: relationships, meaning-making and ethical responsibility in the encounter with the Other.',
     h1: 'Our approach',
     lead: 'Our practice is built on the dialogical perspective.',
     intro: {
@@ -233,7 +233,7 @@ export const en: Content = {
     {
       slug: 'hengameh-fransson',
       role: 'Specialist physician in psychiatry',
-      short: 'Psychiatrist with experience in child, adolescent and adult psychiatry as well as talk therapy.',
+      short: 'Psychiatrist experienced in child, adolescent and adult psychiatry and talk therapy.',
       alt: 'Hengameh Fransson, specialist physician in psychiatry',
       bio: [
         'Hengameh is a trained specialist physician in psychiatry (psychiatrist). She assesses and treats all kinds of mental ill-health and has experience in child and adolescent as well as adult psychiatry.',
@@ -244,7 +244,7 @@ export const en: Content = {
     {
       slug: 'siamak-noroozy',
       role: 'Social worker and licensed psychotherapist',
-      short: 'Licensed psychotherapist and supervisor with experience in trauma, depression and anxiety.',
+      short: 'Supervisor experienced in trauma, depression and anxiety.',
       alt: 'Siamak Noroozy, social worker and licensed psychotherapist',
       bio: [
         'Siamak is a trained social worker with an intercultural focus and a licensed psychotherapist. He is qualified as both a supervisor and a teacher of psychotherapy.',
@@ -328,7 +328,7 @@ export const en: Content = {
       slug: 'certificates',
       title: 'Certificates for authorities',
       summary: 'Medical certificates for police training, military enlistment and more.',
-      description: 'Medical certificates from a specialist physician in psychiatry for the Swedish Police Authority, the Swedish Armed Forces and the Swedish Defence Conscription and Assessment Agency. See prices.',
+      description: 'Medical certificates from a specialist physician in psychiatry for the Police Authority, the Armed Forces and the Defence Conscription and Assessment Agency.',
       body: [
         'We can carry out assessments and issue certificates for authorities, for example the Swedish Police Authority, the Swedish Armed Forces and the Swedish Defence Conscription and Assessment Agency.',
         'When applying to the Police Academy, a medical certificate from a specialist physician in psychiatry is required if you have ever had certain diagnoses, including depression, anxiety, eating disorders, ADHD and ADD. The certificate is used as the basis for an individual assessment before admission. The Armed Forces have similar requirements for conscripts with an ADHD diagnosis. Details on which diagnoses are covered are available from each authority.',

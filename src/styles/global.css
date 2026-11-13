@@ -246,4 +246,4 @@ html:lang(fa) h1, html:lang(fa) h2, html:lang(fa) h3 { line-height: 1.5; }
 [dir='rtl'] .more svg, [dir='rtl'] .button svg { transform: scaleX(-1); }
 [dir='rtl'] .card:hover .more svg { transform: scaleX(-1) translateX(4px); }
 .notfound-block + .notfound-block { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-.notfound-block h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); }
+.notfound-block h1, .notfound-block h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); }

@@ -11,7 +11,7 @@ const blocks = locales.map((l) => ({ lang: l, c: getContent(l) }));
       <p class="eyebrow">404</p>
       {blocks.map((b) => (
         <div lang={b.c.htmlLang} dir={b.c.dir} class="notfound-block">
-          <h1>{b.c.notFound.title}</h1>
+          {b.lang === 'sv' ? <h1>{b.c.notFound.title}</h1> : <h2>{b.c.notFound.title}</h2>}
           <p>{b.c.notFound.text}</p>
           <p><a class="button" href={pathFor(b.lang, 'home')}>{b.c.notFound.button}</a></p>
         </div>
