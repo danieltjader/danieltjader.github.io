@@ -1,11 +1,13 @@
 ---
+import { useI18n } from '../i18n';
 interface Props { items: { href?: string; label: string }[] }
 const { items } = Astro.props;
+const { c, p } = useI18n(Astro.url);
 ---
 
-<nav class="crumbs" aria-label="Brödsmulor">
+<nav class="crumbs" aria-label={c.ui.breadcrumbs}>
   <ol>
-    <li><a href="/">Start</a></li>
+    <li><a href={p('home')}>{c.ui.start}</a></li>
     {items.map((i, idx) => (
       <li>{i.href && idx < items.length - 1 ? <a href={i.href}>{i.label}</a> : <span aria-current="page">{i.label}</span>}</li>
     ))}

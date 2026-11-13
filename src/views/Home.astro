@@ -1,0 +1,146 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import CtaBox from '../components/CtaBox.astro';
+import Icon from '../components/Icon.astro';
+import Avatar from '../components/Avatar.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import hero from '../assets/terapeuter.webp';
+import samtalsrum from '../assets/samtalsrum.webp';
+import { site } from '../data';
+import { useI18n } from '../i18n';
+
+const { c, p, therapists, address } = useI18n(Astro.url);
+const h = c.home;
+const people = therapists.map((t) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: t.name,
+  jobTitle: t.role,
+  email: t.email,
+  url: new URL(p('therapists', t.slug), site.url).href,
+  worksFor: { '@id': `${site.url}/#organization` },
+}));
+---
+
+<Base title={h.title} description={h.description} jsonLd={people} route={{ key: 'home' }}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <Image class="hero-img" src={hero} alt={h.hero.alt} widths={[640, 960, 1280, 1600]} sizes="100vw" loading="eager" fetchpriority="high" />
+      <div class="hero-overlay">
+        <div class="wrap">
+          <div class="hero-content">
+            <p class="eyebrow">{h.hero.eyebrow}</p>
+            <h1 id="hero-title">{h.hero.h1}</h1>
+            <p class="lead">{h.hero.lead}</p>
+            <div class="button-row">
+              <a class="button" href={p('contact')}>{c.ui.contactUs} <Icon name="arrow-right" size={18} /></a>
+              <a class="button secondary" href={p('services')}>{h.hero.secondary}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-trust">
+      <div class="wrap">
+        <ul class="trust">
+          <li><Icon name="stethoscope" size={20} /> {h.trust[0]}</li>
+          <li><Icon name="shield-check" size={20} /> {h.trust[1]}</li>
+          <li><Icon name="monitor" size={20} /> {h.trust[2]}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tjanster">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">{h.services.eyebrow}</p>
+        <h2 id="tjanster">{h.services.h2}</h2>
+        <p>{h.services.text}</p>
+      </div>
+      <ServiceCards />
+      <p style="margin-top:1.5rem"><a href={p('prices')}>{h.services.pricesLink}</a></p>
+    </div>
+  </section>
+
+  <section class="section tint" aria-labelledby="synsatt">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">{h.approach.eyebrow}</p>
+        <h2 id="synsatt" class="quote">{h.approach.quote}</h2>
+        <p class="prose">{h.approach.text}</p>
+        <p><a class="button secondary" href={p('approach')}>{h.approach.button}</a></p>
+      </div>
+      <Image class="portrait" src={samtalsrum} alt={h.approach.imgAlt} widths={[480, 720, 960]} sizes="(min-width: 860px) 500px, 100vw" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="terapeuter">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">{h.team.eyebrow}</p>
+        <h2 id="terapeuter">{h.team.h2}</h2>
+      </div>
+      <ul class="card-grid two">
+        {therapists.map((t) => (
+          <li>
+            <article class="card">
+              <Avatar image={t.image} alt={t.alt} focus={t.focus} />
+              <p class="role">{t.role}</p>
+              <h3>{t.name}</h3>
+              <p>{t.short}</p>
+              <a class="more" href={p('therapists', t.slug)}>{c.ui.readMore} <Icon name="arrow-right" size={16} /><span class="sr-only"> {c.ui.about} {t.name}</span></a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section tint-green" aria-labelledby="org">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">{h.orgs.eyebrow}</p>
+        <h2 id="org">{h.orgs.h2}</h2>
+        <p class="prose">{h.orgs.text}</p>
+        <p><a class="button secondary" href={p('organisations')}>{h.orgs.button}</a></p>
+      </div>
+      <ul class="info-list">
+        <li><span class="icon-badge"><Icon name="clipboard-list" size={22} /></span><div><strong>{h.orgs.items[0].title}</strong>{h.orgs.items[0].text}</div></li>
+        <li><span class="icon-badge"><Icon name="graduation-cap" size={22} /></span><div><strong>{h.orgs.items[1].title}</strong>{h.orgs.items[1].text}</div></li>
+        <li><span class="icon-badge"><Icon name="users" size={22} /></span><div><strong>{h.orgs.items[2].title}</strong>{h.orgs.items[2].text}</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="hitta">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">{h.find.eyebrow}</p>
+        <h2 id="hitta">{h.find.h2}</h2>
+        <ul class="info-list">
+          <li>
+            <span class="icon-badge"><Icon name="map-pin" size={22} /></span>
+            <div><strong>{address.place}</strong><address>{address.street}, {address.postalCode} {address.city}</address><a href={site.mapUrl} rel="noopener">{c.ui.showOnMap}</a></div>
+          </li>
+          <li>
+            <span class="icon-badge"><Icon name="mail" size={22} /></span>
+            <div><strong>{c.ui.email}</strong><a href={`mailto:${site.email}`}>{site.email}</a></div>
+          </li>
+          <li>
+            <span class="icon-badge"><Icon name="phone" size={22} /></span>
+            <div><strong>{c.ui.phone}</strong>{therapists.map((t) => <span>{t.name.split(' ')[0]}: <a href={`tel:${t.tel}`}>{c.code === 'sv' ? t.phone : t.phoneIntl}</a><br /></span>)}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="aside-card" style="position:static">
+        <h2>{h.faqCard.h2}</h2>
+        <p>{h.faqCard.text}</p>
+        <a class="button secondary" href={p('faq')}>{h.faqCard.button}</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBox />
+</Base>

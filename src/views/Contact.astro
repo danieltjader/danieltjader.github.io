@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data';
+import { useI18n } from '../i18n';
+const { c, therapists, address } = useI18n(Astro.url);
+const pg = c.contactPage;
+const crumbs = [{ label: c.pageNames.contact }];
+const names = therapists.map((t) => t.name).join(` ${pg.and} `);
+const phone = (t: (typeof therapists)[number]) => (c.code === 'sv' ? t.phone : t.phoneIntl);
+---
+
+<Base title={pg.title(address)} description={pg.description(site.name, address, names)} crumbs={crumbs} route={{ key: 'contact' }}>
+  <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <ul class="card-grid">
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="map-pin" /></span>
+            <h2>{pg.visit}</h2>
+            <p>{address.place}</p>
+            <address style="font-style:normal">{address.street}<br />{address.postalCode} {address.city}</address>
+            <a class="more" href={site.mapUrl} rel="noopener">{c.ui.showOnMap} <Icon name="arrow-right" size={16} /></a>
+          </article>
+        </li>
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="mail" /></span>
+            <h2>{c.ui.email}</h2>
+            <p>{pg.general}<br /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+            {therapists.map((t) => <p>{t.name}:<br /><a href={`mailto:${t.email}`}>{t.email}</a></p>)}
+          </article>
+        </li>
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="phone" /></span>
+            <h2>{c.ui.phone}</h2>
+            {therapists.slice().reverse().map((t) => <p>{t.name}:<br /><a href={`tel:${t.tel}`}>{phone(t)}</a></p>)}
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBox from '../components/CtaBox.astro';
+import Icon from '../components/Icon.astro';
+import { Image } from 'astro:assets';
+import samtalsrum from '../assets/samtalsrum.webp';
+import { useI18n } from '../i18n';
+const { c, p } = useI18n(Astro.url);
+const pg = c.approachPage;
+const crumbs = [{ label: c.pageNames.approach }];
+---
+
+<Base title={pg.title} description={pg.description} crumbs={crumbs} route={{ key: 'approach' }}>
+  <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
+  <section class="section">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">{pg.intro.eyebrow}</p>
+        <h2>{pg.intro.h2}</h2>
+        {pg.intro.paras.map((para) => <p>{para}</p>)}
+      </div>
+      <Image class="portrait" src={samtalsrum} alt={pg.imgAlt} widths={[480, 720, 960]} sizes="(min-width: 860px) 500px, 100vw" loading="eager" />
+    </div>
+  </section>
+  <section class="section tint" aria-labelledby="principer">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">{pg.principles.eyebrow}</p>
+        <h2 id="principer">{pg.principles.h2}</h2>
+      </div>
+      <ul class="card-grid two">
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="message-heart" /></span>
+            <h3>{pg.principles.meeting.title}</h3>
+            <p>{pg.principles.meeting.text}</p>
+          </article>
+        </li>
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="heart-handshake" /></span>
+            <h3>{pg.principles.ethics.title}</h3>
+            {pg.principles.ethics.paras.map((para) => <p>{para}</p>)}
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <p class="quote">{pg.closing.quote}</p>
+      <p class="prose">{pg.closing.text}</p>
+      <div class="button-row"><a class="button" href={p('services')}>{pg.closing.primary}</a><a class="button secondary" href={p('therapists')}>{pg.closing.secondary}</a></div>
+    </div>
+  </section>
+  <CtaBox />
+</Base>

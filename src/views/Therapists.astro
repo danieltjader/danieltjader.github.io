@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Avatar from '../components/Avatar.astro';
+import Icon from '../components/Icon.astro';
+import CtaBox from '../components/CtaBox.astro';
+import { useI18n } from '../i18n';
+const { c, p, therapists } = useI18n(Astro.url);
+const pg = c.therapistsPage;
+const crumbs = [{ label: c.pageNames.therapists }];
+---
+
+<Base title={pg.title} description={pg.description} crumbs={crumbs} route={{ key: 'therapists' }}>
+  <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <ul class="card-grid two">
+        {therapists.map((t) => (
+          <li>
+            <article class="card">
+              <Avatar image={t.image} alt={t.alt} focus={t.focus} size={144} />
+              <p class="role">{t.role}</p>
+              <h2>{t.name}</h2>
+              <p>{t.short}</p>
+              <a class="more" href={p('therapists', t.slug)}>{c.ui.readMore} <Icon name="arrow-right" size={16} /><span class="sr-only"> {c.ui.about} {t.name}</span></a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <CtaBox />
+</Base>

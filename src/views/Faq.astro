@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CtaBox from '../components/CtaBox.astro';
+import { getFaq } from '../i18n';
+import { useI18n } from '../i18n';
+const { lang, c } = useI18n(Astro.url);
+const faq = getFaq(lang);
+const pg = c.faqPage;
+const crumbs = [{ label: c.pageNames.faq }];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base title={pg.title} description={pg.description} crumbs={crumbs} jsonLd={[faqLd]} route={{ key: 'faq' }}>
+  <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
+  <section class="section">
+    <div class="wrap faq prose">
+      {faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+          {f.link && <p><a href={f.link.href}>{f.link.label} →</a></p>}
+        </details>
+      ))}
+    </div>
+  </section>
+  <CtaBox title={pg.cta.title} text={pg.cta.text} />
+</Base>

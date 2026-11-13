@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import CtaBox from '../components/CtaBox.astro';
+import { site } from '../data';
+import { useI18n } from '../i18n';
+
+const { id } = Astro.props;
+const { c, p, therapists } = useI18n(Astro.url);
+const t = therapists.find((x) => x.slug === id)!;
+const crumbs = [{ label: c.pageNames.therapists, href: p('therapists') }, { label: t.name }];
+---
+
+<Base
+  title={`${t.name} – ${t.role}`}
+  description={c.therapistDetail.description(t.name, t.role, t.short)}
+  crumbs={crumbs}
+  route={{ key: 'therapists', id: t.slug }}
+  jsonLd={[{
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: t.name,
+    jobTitle: t.role,
+    email: t.email,
+    telephone: t.tel,
+    worksFor: { '@id': `${site.url}/#organization` },
+  }]}
+>
+  <PageHeader title={t.name} crumbs={crumbs}>{t.role}</PageHeader>
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        {t.bio.map((para) => <p>{para}</p>)}
+      </div>
+      <aside class="aside-card">
+        <Image class="portrait" src={t.image} alt={t.alt} widths={[400, 640]} sizes="(min-width: 860px) 360px, 100vw" loading="eager" style="margin-bottom:1.25rem" />
+        <h2>{c.therapistDetail.contact(t.name.split(' ')[0])}</h2>
+        <ul class="info-list">
+          <li><span class="icon-badge"><Icon name="mail" size={22} /></span><div><strong>{c.ui.email}</strong><a href={`mailto:${t.email}`}>{t.email}</a></div></li>
+          <li><span class="icon-badge"><Icon name="phone" size={22} /></span><div><strong>{c.ui.phone}</strong><a href={`tel:${t.tel}`}>{c.code === 'sv' ? t.phone : t.phoneIntl}</a></div></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <CtaBox />
+</Base>

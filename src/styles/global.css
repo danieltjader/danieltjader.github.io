@@ -213,3 +213,5 @@ a:hover { color: var(--primary-dark); }
 
 .card .icon-badge { background: var(--tint); }
 @media (max-width: 859px) { .aside-card { position: static; } }
+
+.site-nav .lang-switch { font-weight: 700; letter-spacing: 0.05em; border: 1px solid currentColor; border-radius: 999px; padding: 0.2rem 0.65rem; }

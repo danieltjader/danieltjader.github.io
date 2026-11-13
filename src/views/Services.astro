@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CtaBox from '../components/CtaBox.astro';
+import Icon from '../components/Icon.astro';
+import { useI18n } from '../i18n';
+const { c, p } = useI18n(Astro.url);
+const pg = c.servicesPage;
+const crumbs = [{ label: c.pageNames.services }];
+---
+
+<Base title={pg.title} description={pg.description} crumbs={crumbs} route={{ key: 'services' }}>
+  <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <ServiceCards />
+    </div>
+  </section>
+  <section class="section tint-green">
+    <div class="wrap split even">
+      <div>
+        <h2>{pg.orgs.h2}</h2>
+        <p class="prose">{pg.orgs.text}</p>
+        <a class="button secondary" href={p('organisations')}>{pg.orgs.button}</a>
+      </div>
+      <div>
+        <h2>{pg.price.h2}</h2>
+        <p class="prose">{pg.price.text}</p>
+        <a class="button secondary" href={p('prices')}><Icon name="banknote" size={18} /> {pg.price.button}</a>
+      </div>
+    </div>
+  </section>
+  <CtaBox />
+</Base>

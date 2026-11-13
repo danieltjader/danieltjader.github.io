@@ -1,12 +1,13 @@
 ---
-import type { Price } from '../data';
-interface Props { caption: string; prices: Price[] }
+import { useI18n } from '../i18n';
+interface Props { caption: string; prices: { label: string; price: string }[] }
 const { caption, prices } = Astro.props;
+const { c } = useI18n(Astro.url);
 ---
 
 <table class="price-table">
   <caption>{caption}</caption>
-  <thead><tr><th scope="col">Tjänst</th><th scope="col">Pris</th></tr></thead>
+  <thead><tr><th scope="col">{c.pricesPage.colService}</th><th scope="col">{c.pricesPage.colPrice}</th></tr></thead>
   <tbody>
     {prices.map((p) => <tr><th scope="row">{p.label}</th><td>{p.price}</td></tr>)}
   </tbody>

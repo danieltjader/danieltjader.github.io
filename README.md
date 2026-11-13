@@ -37,3 +37,10 @@ Terapeut- och tjänstesidor genereras från `src/data.ts`. Lägg till en post d�
 Endast statisk hosting. Publicera innehållet i `dist/` på valfri CDN eller statisk host. `public/_headers` innehåller säkerhetsrubriker, CSP och cachning och används av t.ex. Netlify och Cloudflare Pages. Andra hostar behöver motsvarande konfiguration.
 
 Kontakt sker via `mailto:` och `tel:`, det finns inget formulär eller backend.
+
+## Språk (i18n)
+
+- Svenska ligger på `/`, övriga språk under `/<kod>/` (t.ex. `/en/`).
+- Texter: `src/i18n/sv.ts` och `src/i18n/en.ts`. Språkneutral data (kontakt, priser): `src/data.ts`.
+- Nytt språk: skapa `src/i18n/<kod>.ts` (kopiera `en.ts`), registrera i `src/i18n/index.ts` (`locales`, `contents`, `segments`) och lägg till i `sitemap`-`i18n` i `astro.config.mjs`.
+- Sidmallar: `src/views/`, routing: `src/pages/[...path].astro`.

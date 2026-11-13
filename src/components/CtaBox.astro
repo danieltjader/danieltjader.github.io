@@ -1,22 +1,20 @@
 ---
 import Icon from './Icon.astro';
+import { useI18n } from '../i18n';
 interface Props { title?: string; text?: string; button?: string }
-const {
-  title = 'Vill du veta mer eller boka tid?',
-  text = 'Hör av dig så hjälper vi dig vidare.',
-  button = 'Kontakta oss',
-} = Astro.props;
+const { c, p } = useI18n(Astro.url);
+const { title = c.ui.cta.title, text = c.ui.cta.text, button = c.ui.cta.button } = Astro.props;
 ---
 
 <section class="section" aria-labelledby="cta-title">
   <div class="wrap">
     <div class="cta-band">
-      <span class="cta-icon" aria-hidden="true"><Icon name="message-heart" size={52} /></span>
+      <span class="cta-icon" aria-hidden="true"><Icon name="message-heart" size={72} /></span>
       <div>
         <h2 id="cta-title">{title}</h2>
         <p>{text}</p>
       </div>
-      <a class="button" href="/kontakt/">{button} <Icon name="arrow-right" size={18} /></a>
+      <a class="button" href={p('contact')}>{button} <Icon name="arrow-right" size={18} /></a>
     </div>
   </div>
 </section>

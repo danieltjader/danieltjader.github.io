@@ -1,0 +1,34 @@
+---
+import { allRoutes } from '../i18n';
+import Home from '../views/Home.astro';
+import Therapists from '../views/Therapists.astro';
+import Therapist from '../views/Therapist.astro';
+import Services from '../views/Services.astro';
+import Service from '../views/Service.astro';
+import Prices from '../views/Prices.astro';
+import Organisations from '../views/Organisations.astro';
+import Faq from '../views/Faq.astro';
+import Approach from '../views/Approach.astro';
+import Contact from '../views/Contact.astro';
+
+export function getStaticPaths() {
+  return allRoutes().map(({ path, view, id }) => ({ params: { path }, props: { view, id } }));
+}
+
+const views = {
+  home: Home,
+  therapists: Therapists,
+  therapist: Therapist,
+  services: Services,
+  service: Service,
+  prices: Prices,
+  organisations: Organisations,
+  faq: Faq,
+  approach: Approach,
+  contact: Contact,
+};
+const { view, id } = Astro.props;
+const View = views[view as keyof typeof views];
+---
+
+<View id={id} />
