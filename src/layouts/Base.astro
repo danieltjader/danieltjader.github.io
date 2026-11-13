@@ -3,6 +3,7 @@ import '@fontsource-variable/josefin-sans';
 import '@fontsource-variable/eb-garamond';
 import '../styles/global.css';
 import { Image } from 'astro:assets';
+import Icon from '../components/Icon.astro';
 import logo from '../assets/logo.webp';
 import { site } from '../data';
 import { useI18n, locales, defaultLocale, pathFor, navKeys, footerKeys, getContent, type PageKey } from '../i18n';
@@ -115,7 +116,7 @@ const organization = {
             ))}
             {otherLangs.map((a) => (
               <li>
-                <a class="lang-switch" href={a.path} hreflang={a.lang} lang={a.lang} aria-label={`${c.ui.langSwitch}: ${getContent(a.lang).native}`}>{getContent(a.lang).short}</a>
+                <a class="lang-switch" href={a.path} hreflang={a.lang} lang={a.lang} aria-label={`${c.ui.langSwitch}: ${getContent(a.lang).native}`}><Icon name="languages" size={18} /><span aria-hidden="true">{getContent(a.lang).native}</span></a>
               </li>
             ))}
           </ul>
