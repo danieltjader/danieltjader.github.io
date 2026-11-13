@@ -114,10 +114,20 @@ const organization = {
         <nav class="site-nav" aria-label={c.ui.mainNav}>
           <ul>
             {navKeys.map((k) => (
-              <li>
+              <li class:list={[{ 'nav-cta': k === 'contact' }]}>
                 <a href={p(k)} class:list={[{ cta: k === 'contact' }]} aria-current={path.startsWith(p(k)) ? 'page' : undefined}>{c.pageNames[k as keyof typeof c.pageNames]}</a>
               </li>
             ))}
+            {alternates.length > 0 && (
+              <li class="lang-list">
+                <span class="lang-list-label"><Icon name="languages" size={16} /> {c.ui.langSwitch}</span>
+                <ul>
+                  {alternates.map((a) => (
+                    <li><a href={a.path} hreflang={a.lang} lang={a.lang} aria-current={a.lang === lang ? 'true' : undefined}>{getContent(a.lang).native}</a></li>
+                  ))}
+                </ul>
+              </li>
+            )}
             {alternates.length > 0 && (
               <li class="lang-menu">
                 <details>
