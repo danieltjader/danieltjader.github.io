@@ -1,5 +1,7 @@
 import type { ServiceIcon } from '../data';
 
+export interface Section { h: string; paras: string[]; list?: string[] }
+
 interface Address { street: string; postalCode: string; city: string; place: string }
 
 export const sv = {
@@ -53,7 +55,7 @@ export const sv = {
 
   home: {
     title: 'Dialogisk Praxis – psykiatri och psykoterapi i Stockholm',
-    description: 'Psykiatrisk vård, psykoterapi, par- och familjeterapi på Östermalm i Stockholm. Möt psykiater Hengameh Fransson och psykoterapeut Siamak Noroozy.',
+    description: 'Psykiatrisk vård, psykoterapi, par- och familjerådgivning på Östermalm i Stockholm. Möt psykiater Hengameh Fransson och psykoterapeut Siamak Noroozy.',
     hero: {
       alt: 'Hengameh Fransson och Siamak Noroozy',
       eyebrow: 'Östermalm, Stockholm',
@@ -108,9 +110,10 @@ export const sv = {
 
   servicesPage: {
     title: 'Vi erbjuder – psykiatri, psykoterapi och intyg',
-    description: 'Psykiatrisk vård, psykoterapi, par- och familjeterapi, second opinion och intyg till myndigheter i Stockholm. Se vad vi erbjuder, vad det kostar och hur du bokar.',
+    description: 'Psykiatrisk vård, psykoterapi, par- och familjerådgivning, second opinion och intyg till myndigheter i Stockholm. Se vad vi erbjuder, vad det kostar och hur du bokar.',
     h1: 'Vi erbjuder',
     lead: 'Utredning, behandling och samtal för barn, ungdomar och vuxna – fysiskt eller digitalt.',
+    orgCard: { title: 'Utredning, utbildning och handledning', summary: 'För företag och organisationer: utredning, föreläsning, utbildning och handledning.' },
     orgs: {
       h2: 'Företag och organisationer',
       text: 'Vi erbjuder också utredning, utbildning och handledning till socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.',
@@ -252,29 +255,60 @@ export const sv = {
 
   services: [
     {
-      id: 'psychotherapy',
-      slug: 'psykoterapi',
-      title: 'Psykoterapi',
-      summary: 'Individ-, par- och familjeterapi utifrån ett dialogiskt synsätt.',
-      description: 'Psykoterapi, parterapi och familjeterapi i Stockholm utifrån ett dialogiskt synsätt. Se vad det innebär, vad det kostar och hur du bokar.',
-      body: [
-        'Psykoterapi, psykologisk behandling, innebär behandling av psykiska, relationella och existentiella problem med psykologiska metoder. Psykoterapi bygger på vetenskap och beprövad erfarenhet.',
-        'Psykoterapeuterna leder processen mot att ge utrymme för att motsägelsefulla röster och osagda erfarenheter ska komma till tals och gå i dialog med varandra. På det sättet kan individen själv hitta sin egen väg och gå vidare med ett större handlingsutrymme och förbättrat hälsotillstånd.',
-        'Enligt det dialogiska synsättet är psykoterapi inte begränsat till en speciell form, t.ex. individualterapi eller familjeterapi. Valet av form är förhandlingsbart och föränderligt och beror på varje persons unika levnadsomständigheter.',
-      ],
-      priceLabels: ['Psykoterapi 45 minuter', 'Psykoterapi 45 minuter, studentpris', 'Parterapi 90 minuter', 'Familjeterapi och familjerådgivning 90 minuter'],
+      id: "psychotherapy",
+      slug: "psykoterapi",
+      title: "Psykoterapi",
+      summary: "Samtal som hjälper dig att förstå det som känns svårt, återfinna din riktning och upptäcka nya möjligheter i livet.",
+      description: "Psykoterapi för vuxna, barn och ungdomar i Stockholm utifrån ett dialogiskt synsätt. Se vad det innebär, vad det kostar och hur du bokar.",
+      body: [] as string[],
+      sections: [
+        { h: "Vad innebär psykoterapi?", paras: ["Psykoterapi är en behandlingsform där du tillsammans med en terapeut får utrymme att utforska det som påverkar ditt mående och din livssituation. Det kan handla om oro, nedstämdhet, stress, relationssvårigheter, trauma, livskriser eller sådant som gång på gång begränsar dig och gör livet svårare att leva. I terapin får både känslor, erfarenheter, relationer och livsvillkor plats. Målet är inte enbart att minska symtom, utan att skapa ökad förståelse, större handlingsutrymme och möjlighet att leva på ett mer bärande sätt."] },
+        { h: "Hur går behandlingen till?", paras: ["Behandlingen sker genom regelbundna samtal i en trygg och respektfull miljö där du blir lyssnad till och tagen på allvar. Tillsammans utforskar vi det som gör ont, det som låst sig och det som ännu inte fått språk. Genom samtalen kan nya perspektiv växa fram, tidigare erfarenheter förstås på nya sätt och oanade möjligheter bli synliga. Förändring sker ofta stegvis, men kan få djupgående betydelse.", "Samtalen anpassas efter dina behov och din situation. För barn och ungdomar kan även föräldrar eller andra viktiga vuxna involveras när det är hjälpsamt. Vid relationssvårigheter kan samtalen även ske tillsammans med partner eller familjemedlemmar."] },
+        { h: "Vem kan få hjälp?", paras: ["Vi erbjuder psykoterapi, familjerådgivning och samtalsstöd för vuxna, barn, ungdomar, par och familjer. Du kan söka hjälp vid exempelvis:"], list: ["ångest och oro", "nedstämdhet eller depression", "stress och utmattning", "trauma och svåra livshändelser", "kris efter separation, våld eller förlust", "relationssvårigheter", "konflikter i familjen", "svårigheter i kommunikationen", "självkänsla och identitet", "känslomässiga eller beteendemässiga svårigheter hos barn och unga"] },
+      ] as Section[],
+      priceLabels: ["Psykoterapi 45 minuter", "Psykoterapi 45 minuter, studentpris"],
     },
     {
-      id: 'psychiatric-care',
-      slug: 'psykiatrisk-vard',
-      title: 'Psykiatrisk vård',
-      summary: 'Utredning och behandling av psykisk ohälsa hos barn, ungdomar och vuxna.',
-      description: 'Psykiatrisk öppenvårdsmottagning i Stockholm för utredning och behandling av depression, ångest, trauma, stress med mera. Fysiskt eller digitalt besök.',
-      body: [
-        'Vi är en psykiatrisk öppenvårdsmottagning som erbjuder kvalificerad utredning och behandling av psykisk ohälsa hos barn, ungdomar och vuxna. Vi erbjuder personcentrerad vård – både medicinsk behandling och psykoterapi.',
-        'Lider du av depression, ångestproblematik, sömnstörningar, ätstörning, trauma- och krisreaktion, bipolaritet, stress/utmattning eller liknande är du välkommen att kontakta oss för antingen fysiskt eller digitalt besök.',
-      ],
-      priceLabels: ['Läkarbesök, 60 minuter'],
+      id: "psychiatric-care",
+      slug: "psykiatrisk-vard",
+      title: "Psykiatrisk vård",
+      summary: "Få en grundlig psykiatrisk bedömning och en tydlig plan för din behandling.",
+      description: "Specialistpsykiatrisk bedömning och behandling i Stockholm. Träffa en läkare med särskild kompetens inom psykiatri, fysiskt eller digitalt.",
+      body: [] as string[],
+      sections: [
+        { h: "Vad innebär specialistpsykiatrisk bedömning?", paras: ["Vid en specialistpsykiatrisk bedömning får du träffa en läkare med särskild kompetens inom psykiatri. Här kartläggs dina symtom, din livssituation och tidigare vårdhistorik för att förstå orsaken till dina besvär."] },
+        { h: "Hur går besöket till?", paras: ["Besöket inleds med ett fördjupat samtal där du får beskriva ditt mående. Bedömningen kan inkludera diagnostik, eventuell utredning och planering av fortsatt behandling."] },
+        { h: "Vad händer efter bedömningen?", paras: ["Efter besöket får du en individuell behandlingsplan som kan inkludera läkemedelsbehandling, psykoterapi eller andra insatser."] },
+      ] as Section[],
+      priceLabels: ["Läkarbesök, 60 minuter"],
+    },
+    {
+      id: "family-therapy",
+      slug: "familjeterapi",
+      title: "Familjeterapi och föräldrastöd",
+      summary: "Stärk relationer och skapa bättre förutsättningar för hela familjen.",
+      description: "Familjeterapi och föräldrastöd i Stockholm. Stärk relationerna och hitta nya sätt att hantera konflikter och svårigheter i familjen.",
+      body: [] as string[],
+      sections: [
+        { h: "Vad innebär familjeterapi?", paras: ["Familjeterapi fokuserar på samspelet mellan familjemedlemmar och hur relationer påverkar måendet. Föräldrabehandling ger stöd i föräldrarollen och verktyg för att hantera utmaningar i vardagen."] },
+        { h: "Hur går behandlingen till?", paras: ["Under samtalen arbetar ni tillsammans med terapeuten för att förstå mönster, förbättra kommunikation och hitta nya sätt att hantera konflikter och svårigheter."] },
+        { h: "När kan familjeterapi vara aktuellt?", paras: ["Behandlingen kan vara hjälpsam vid konflikter i familjen, svårigheter i föräldraskapet eller när ett barn eller en ungdom inte mår bra."] },
+      ] as Section[],
+      priceLabels: ["Familjeterapi 90 minuter"],
+    },
+    {
+      id: "family-counselling",
+      slug: "par-och-familjeradgivning",
+      title: "Par- och familjerådgivning",
+      summary: "Få stöd i relationen och hjälp att hitta vägar framåt tillsammans.",
+      description: "Par- och familjerådgivning i Stockholm. Få stöd med kommunikation, konflikter och relationens utmaningar.",
+      body: [] as string[],
+      sections: [
+        { h: "Vad är par- och familjerådgivning?", paras: ["Par- och familjerådgivning är en samtalsform som riktar sig till par och familjer som vill arbeta med sin relation. Fokus ligger på kommunikation, förståelse och att hantera konflikter."] },
+        { h: "Hur går samtalen till?", paras: ["Under samtalen får ni stöd av en professionell rådgivare för att utforska relationens styrkor och utmaningar. Ni får verktyg för att förbättra kommunikationen och skapa förändring."] },
+        { h: "När kan par- och familjerådgivning vara aktuellt?", paras: ["Det kan vara aktuellt vid relationsproblem, kriser, separationstankar eller när ni vill stärka er relation."] },
+      ] as Section[],
+      priceLabels: ["Parterapi 90 minuter", "Familjerådgivning 90 minuter"],
     },
     {
       id: 'second-opinion',
@@ -286,6 +320,7 @@ export const sv = {
         'Om du upplever att du har fått fel diagnos, upplever andra svårigheter som inte stämmer in på den ställda diagnosen eller upplever att du inte borde ha en diagnos över huvud taget erbjuder vi möjlighet att ompröva, ändra, friskförklara från eller ta bort diagnosen.',
         'Varje fall är individuellt och processen är personcentrerad. Utredning och bedömning tar därför olika lång tid och arbete i anspråk. Välkommen att kontakta oss för en konsultation.',
       ],
+      sections: [] as Section[],
       priceLabels: [] as string[],
     },
     {
@@ -299,6 +334,7 @@ export const sv = {
         'Vid ansökan till polishögskolan krävs ett läkarintyg från specialistläkare i psykiatri om man någon gång har haft specifika diagnoser, bl.a. depression, ångest, ätstörning, ADHD, ADD. Intyget används som underlag för en individuell bedömning inför antagning. Försvarsmakten har liknande krav för mönstrande med ADHD-diagnos. Detaljer om vilka diagnoser som omfattas finns hos respektive myndighet.',
         'Varje fall är individuellt och processen är personcentrerad. Välkommen att kontakta oss för en konsultation.',
       ],
+      sections: [] as Section[],
       priceLabels: ['Intyg i samband med mönstring', 'Intyg vid ansökan till polisutbildning'],
     },
   ],

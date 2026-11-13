@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
 import { useI18n } from '../i18n';
+const { withOrgs = false } = Astro.props;
 const { c, p, services } = useI18n(Astro.url);
 ---
 
@@ -15,4 +16,14 @@ const { c, p, services } = useI18n(Astro.url);
       </article>
     </li>
   ))}
+  {withOrgs && (
+    <li>
+      <article class="card">
+        <span class="icon-badge"><Icon name="building" /></span>
+        <h3>{c.servicesPage.orgCard.title}</h3>
+        <p>{c.servicesPage.orgCard.summary}</p>
+        <a class="more" href={p('organisations')}>{c.ui.readMore} <Icon name="arrow-right" size={16} /><span class="sr-only"> {c.ui.about} {c.servicesPage.orgCard.title}</span></a>
+      </article>
+    </li>
+  )}
 </ul>

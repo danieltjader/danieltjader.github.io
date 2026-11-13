@@ -214,7 +214,13 @@ a:hover { color: var(--primary-dark); }
 .card .icon-badge { background: var(--tint); }
 @media (max-width: 859px) { .aside-card { position: static; } }
 
-.site-nav a.lang-switch { display: inline-flex; align-items: center; gap: 0.45rem; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.4rem 0.9rem; font-size: 0.92rem; color: var(--primary-dark); background: var(--surface); }
+.site-nav a.lang-switch { display: inline-flex; align-items: center; gap: 0.45rem; line-height: 1; border: 1.5px solid var(--line); border-radius: 999px; padding: 0.55rem 0.95rem 0.45rem; font-size: 0.92rem; color: var(--primary-dark); background: var(--surface); }
 .site-nav a.lang-switch:hover { border-color: var(--primary); background: var(--tint); }
 .site-nav a.lang-switch svg { flex: none; }
 @media (min-width: 900px) { .site-nav li:has(.lang-switch) { margin-left: 0.5rem; } }
+
+.prose h2 { margin-top: 2rem; font-size: 1.45rem; }
+.check-list { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: 0.5rem; }
+.check-list li { display: flex; gap: 0.6rem; align-items: flex-start; }
+.check-list svg { flex: none; margin-top: 0.3em; color: var(--primary); }
+@media (min-width: 720px) { .check-list { grid-template-columns: 1fr 1fr; gap: 0.6rem 1.5rem; } }

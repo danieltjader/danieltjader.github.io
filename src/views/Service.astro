@@ -33,6 +33,13 @@ const crumbs = [{ label: c.pageNames.services, href: p('services') }, { label: s
     <div class="wrap split">
       <div class="prose">
         {s.body.map((para) => <p>{para}</p>)}
+        {s.sections.map((sec) => (
+          <>
+            <h2>{sec.h}</h2>
+            {sec.paras.map((para) => <p>{para}</p>)}
+            {sec.list && <ul class="check-list">{sec.list.map((li) => <li><Icon name="check" size={18} />{li}</li>)}</ul>}
+          </>
+        ))}
         {s.prices.length > 0 && <PriceTable caption={c.serviceDetail.pricesCaption} prices={s.prices} />}
         {s.prices.length > 0 && <p class="note"><Icon name="banknote" size={18} /> {c.vatNote}</p>}
       </div>

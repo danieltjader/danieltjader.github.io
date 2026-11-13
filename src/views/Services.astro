@@ -14,16 +14,11 @@ const crumbs = [{ label: c.pageNames.services }];
   <PageHeader title={pg.h1} crumbs={crumbs}>{pg.lead}</PageHeader>
   <section class="section">
     <div class="wrap">
-      <ServiceCards />
+      <ServiceCards withOrgs />
     </div>
   </section>
   <section class="section tint-green">
-    <div class="wrap split even">
-      <div>
-        <h2>{pg.orgs.h2}</h2>
-        <p class="prose">{pg.orgs.text}</p>
-        <a class="button secondary" href={p('organisations')}>{pg.orgs.button}</a>
-      </div>
+    <div class="wrap">
       <div>
         <h2>{pg.price.h2}</h2>
         <p class="prose">{pg.price.text}</p>

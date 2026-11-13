@@ -103,7 +103,7 @@ const organization = {
     <header class="site-header">
       <div class="wrap header-inner">
         <a href={p('home')} class="brand" aria-label={c.ui.brandLabel}>
-          <Image src={logo} alt="" width={130} loading="eager" />
+          <Image src={logo} alt="" width={130} densities={[1, 2, 3]} loading="eager" />
         </a>
         <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label={c.ui.menuToggle} />
         <label for="nav-toggle" class="nav-button" aria-hidden="true">{c.ui.menu}</label>

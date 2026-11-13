@@ -37,11 +37,13 @@ export const therapistBase = [
   },
 ] as const;
 
-export type ServiceIcon = 'heart-handshake' | 'stethoscope' | 'search-check' | 'file-check';
+export type ServiceIcon = 'heart-handshake' | 'stethoscope' | 'users' | 'message-heart' | 'search-check' | 'file-check';
 
 export const serviceBase: { id: string; icon: ServiceIcon; prices: number[] }[] = [
-  { id: 'psychotherapy', icon: 'heart-handshake', prices: [1400, 900, 2000, 2000] },
   { id: 'psychiatric-care', icon: 'stethoscope', prices: [2200] },
+  { id: 'psychotherapy', icon: 'heart-handshake', prices: [1400, 900] },
+  { id: 'family-therapy', icon: 'users', prices: [2000] },
+  { id: 'family-counselling', icon: 'message-heart', prices: [2000, 2000] },
   { id: 'second-opinion', icon: 'search-check', prices: [] },
   { id: 'certificates', icon: 'file-check', prices: [9500, 13500] },
 ];

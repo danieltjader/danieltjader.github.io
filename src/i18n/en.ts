@@ -1,4 +1,4 @@
-import type { Content } from './sv';
+import type { Content, Section } from './sv';
 
 // Engelsk översättning – bör granskas av verksamheten (särskilt facktermer och titlar).
 export const en: Content = {
@@ -110,6 +110,7 @@ export const en: Content = {
     description: 'Psychiatric care, psychotherapy, couples and family therapy, second opinions and certificates for authorities in Stockholm. See what we offer, what it costs and how to book.',
     h1: 'Services',
     lead: 'Assessment, treatment and therapy for children, young people and adults – in person or online.',
+    orgCard: { title: 'Assessment, training and supervision', summary: 'For companies and organisations: assessments, lectures, training and supervision.' },
     orgs: {
       h2: 'Companies and organisations',
       text: 'We also offer assessments, training and supervision for social services, residential care homes, insurance companies and primary care centres.',
@@ -251,29 +252,60 @@ export const en: Content = {
 
   services: [
     {
-      id: 'psychotherapy',
-      slug: 'psychotherapy',
-      title: 'Psychotherapy',
-      summary: 'Individual, couples and family therapy from a dialogical perspective.',
-      description: 'Psychotherapy, couples therapy and family therapy in Stockholm from a dialogical perspective. See what it involves, what it costs and how to book.',
-      body: [
-        'Psychotherapy, psychological treatment, means treating mental, relational and existential problems with psychological methods. Psychotherapy is based on science and proven experience.',
-        'The psychotherapists guide the process towards making room for contradictory voices and unspoken experiences to be heard and to enter into dialogue with each other. In this way individuals can find their own way forward, with greater freedom of action and improved health.',
-        'According to the dialogical perspective, psychotherapy is not limited to one particular form, such as individual therapy or family therapy. The choice of form is negotiable and changeable and depends on each person’s unique circumstances.',
-      ],
-      priceLabels: ['Psychotherapy, 45 minutes', 'Psychotherapy, 45 minutes, student price', 'Couples therapy, 90 minutes', 'Family therapy and family counselling, 90 minutes'],
+      id: "psychotherapy",
+      slug: "psychotherapy",
+      title: "Psychotherapy",
+      summary: "Conversations that help you understand what feels difficult, find your direction again and discover new possibilities in life.",
+      description: "Psychotherapy for adults, children and young people in Stockholm, based on a dialogical approach. See what it involves, what it costs and how to book.",
+      body: [] as string[],
+      sections: [
+        { h: "What is psychotherapy?", paras: ["Psychotherapy is a form of treatment where you, together with a therapist, have room to explore what affects your well-being and your life situation. It may concern anxiety, low mood, stress, relationship difficulties, trauma, life crises, or things that repeatedly limit you and make life harder to live. In therapy there is room for feelings, experiences, relationships and life conditions. The aim is not only to reduce symptoms, but to create greater understanding, more freedom of action and the possibility of living in a more sustainable way."] },
+        { h: "How does the treatment work?", paras: ["Treatment takes place through regular conversations in a safe and respectful setting where you are listened to and taken seriously. Together we explore what hurts, what has become stuck and what has not yet found words. Through the conversations new perspectives can emerge, earlier experiences can be understood in new ways and unexpected possibilities can become visible. Change often happens step by step, but can be profoundly significant.", "The sessions are adapted to your needs and situation. For children and young people, parents or other important adults can also be involved when it helps. In case of relationship difficulties, sessions can also take place together with a partner or family members."] },
+        { h: "Who can get help?", paras: ["We offer psychotherapy, family counselling and supportive conversations for adults, children, young people, couples and families. You can seek help for example for:"], list: ["anxiety and worry", "low mood or depression", "stress and exhaustion", "trauma and difficult life events", "crisis after separation, violence or loss", "relationship difficulties", "conflicts in the family", "difficulties in communication", "self-esteem and identity", "emotional or behavioural difficulties in children and young people"] },
+      ] as Section[],
+      priceLabels: ["Psychotherapy, 45 minutes", "Psychotherapy, 45 minutes, student price"],
     },
     {
-      id: 'psychiatric-care',
-      slug: 'psychiatric-care',
-      title: 'Psychiatric care',
-      summary: 'Assessment and treatment of mental ill-health in children, young people and adults.',
-      description: 'Psychiatric outpatient clinic in Stockholm for assessment and treatment of depression, anxiety, trauma, stress and more. In-person or online visit.',
-      body: [
-        'We are a psychiatric outpatient clinic offering qualified assessment and treatment of mental ill-health in children, young people and adults. We offer person-centred care – both medical treatment and psychotherapy.',
-        'If you suffer from depression, anxiety, sleep disorders, eating disorders, trauma and crisis reactions, bipolar disorder, stress or burnout, or something similar, you are welcome to contact us for either an in-person or an online visit.',
-      ],
-      priceLabels: ['Doctor visit, 60 minutes'],
+      id: "psychiatric-care",
+      slug: "psychiatric-care",
+      title: "Psychiatric care",
+      summary: "Get a thorough psychiatric assessment and a clear plan for your treatment.",
+      description: "Specialist psychiatric assessment and treatment in Stockholm. Meet a doctor with special expertise in psychiatry, in person or online.",
+      body: [] as string[],
+      sections: [
+        { h: "What is a specialist psychiatric assessment?", paras: ["In a specialist psychiatric assessment you meet a doctor with special expertise in psychiatry. Your symptoms, life situation and previous care history are mapped to understand the cause of your difficulties."] },
+        { h: "What does the visit involve?", paras: ["The visit begins with an in-depth conversation where you describe how you are feeling. The assessment may include diagnostics, any necessary investigation and planning of further treatment."] },
+        { h: "What happens after the assessment?", paras: ["After the visit you receive an individual treatment plan, which may include medication, psychotherapy or other interventions."] },
+      ] as Section[],
+      priceLabels: ["Doctor visit, 60 minutes"],
+    },
+    {
+      id: "family-therapy",
+      slug: "family-therapy",
+      title: "Family therapy and parental support",
+      summary: "Strengthen relationships and create better conditions for the whole family.",
+      description: "Family therapy and parental support in Stockholm. Strengthen relationships and find new ways to handle conflicts and difficulties in the family.",
+      body: [] as string[],
+      sections: [
+        { h: "What is family therapy?", paras: ["Family therapy focuses on the interaction between family members and how relationships affect well-being. Parental treatment offers support in the parenting role and tools for handling everyday challenges."] },
+        { h: "How does the treatment work?", paras: ["During the sessions you work together with the therapist to understand patterns, improve communication and find new ways of handling conflicts and difficulties."] },
+        { h: "When can family therapy be relevant?", paras: ["The treatment can help with conflicts in the family, difficulties in parenting, or when a child or young person is not doing well."] },
+      ] as Section[],
+      priceLabels: ["Family therapy, 90 minutes"],
+    },
+    {
+      id: "family-counselling",
+      slug: "couples-and-family-counselling",
+      title: "Couples and family counselling",
+      summary: "Get support in your relationship and help finding a way forward together.",
+      description: "Couples and family counselling in Stockholm. Get support with communication, conflicts and the challenges in your relationship.",
+      body: [] as string[],
+      sections: [
+        { h: "What is couples and family counselling?", paras: ["Couples and family counselling is a form of conversation for couples and families who want to work on their relationship. The focus is on communication, understanding and handling conflicts."] },
+        { h: "How do the sessions work?", paras: ["During the sessions you are supported by a professional counsellor to explore the strengths and challenges of the relationship. You get tools to improve communication and create change."] },
+        { h: "When can couples and family counselling be relevant?", paras: ["It can be relevant in case of relationship problems, crises, thoughts of separation, or when you want to strengthen your relationship."] },
+      ] as Section[],
+      priceLabels: ["Couples therapy, 90 minutes", "Family counselling, 90 minutes"],
     },
     {
       id: 'second-opinion',
@@ -285,6 +317,7 @@ export const en: Content = {
         'If you feel you have received the wrong diagnosis, experience other difficulties that do not fit the diagnosis you were given, or feel you should not have a diagnosis at all, we offer the possibility to reassess, change, declare you free of, or remove the diagnosis.',
         'Every case is individual and the process is person-centred. Assessment therefore takes different amounts of time and work. You are welcome to contact us for a consultation.',
       ],
+      sections: [] as Section[],
       priceLabels: [],
     },
     {
@@ -298,6 +331,7 @@ export const en: Content = {
         'When applying to the Police Academy, a medical certificate from a specialist physician in psychiatry is required if you have ever had certain diagnoses, including depression, anxiety, eating disorders, ADHD and ADD. The certificate is used as the basis for an individual assessment before admission. The Armed Forces have similar requirements for conscripts with an ADHD diagnosis. Details on which diagnoses are covered are available from each authority.',
         'Every case is individual and the process is person-centred. You are welcome to contact us for a consultation.',
       ],
+      sections: [] as Section[],
       priceLabels: ['Certificate for military enlistment assessment', 'Certificate for application to police training'],
     },
   ],
