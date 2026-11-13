@@ -1,0 +1,52 @@
+---
+import heartHandshake from 'lucide-static/icons/heart-handshake.svg?raw';
+import stethoscope from 'lucide-static/icons/stethoscope.svg?raw';
+import searchCheck from 'lucide-static/icons/search-check.svg?raw';
+import fileCheck from 'lucide-static/icons/file-check.svg?raw';
+import mapPin from 'lucide-static/icons/map-pin.svg?raw';
+import mail from 'lucide-static/icons/mail.svg?raw';
+import phone from 'lucide-static/icons/phone.svg?raw';
+import building from 'lucide-static/icons/building-2.svg?raw';
+import graduationCap from 'lucide-static/icons/graduation-cap.svg?raw';
+import clipboardList from 'lucide-static/icons/clipboard-list.svg?raw';
+import shieldCheck from 'lucide-static/icons/shield-check.svg?raw';
+import monitor from 'lucide-static/icons/monitor-smartphone.svg?raw';
+import users from 'lucide-static/icons/users.svg?raw';
+import messageHeart from 'lucide-static/icons/message-circle-heart.svg?raw';
+import arrowRight from 'lucide-static/icons/arrow-right.svg?raw';
+import banknote from 'lucide-static/icons/banknote.svg?raw';
+import sprout from 'lucide-static/icons/sprout.svg?raw';
+import languages from 'lucide-static/icons/languages.svg?raw';
+
+const icons = {
+  'heart-handshake': heartHandshake,
+  stethoscope,
+  'search-check': searchCheck,
+  'file-check': fileCheck,
+  'map-pin': mapPin,
+  mail,
+  phone,
+  building,
+  'graduation-cap': graduationCap,
+  'clipboard-list': clipboardList,
+  'shield-check': shieldCheck,
+  monitor,
+  users,
+  'message-heart': messageHeart,
+  'arrow-right': arrowRight,
+  banknote,
+  sprout,
+  languages,
+};
+
+export type IconName = keyof typeof icons;
+
+interface Props { name: IconName; size?: number }
+const { name, size = 24 } = Astro.props;
+const svg = icons[name]
+  .replace(/<!--.*?-->/s, '')
+  .replace(/\s(width|height)="24"/g, '')
+  .replace('<svg', `<svg width="${size}" height="${size}" aria-hidden="true" focusable="false"`);
+---
+
+<Fragment set:html={svg} />

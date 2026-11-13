@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { site, therapists } from '../../data';
+const crumbs = [{ label: 'Kontakt' }];
+const { street, postalCode, city, place } = site.address;
+---
+
+<Base
+  title={`Kontakt – mottagning på ${street}, ${city}`}
+  description={`Kontakta ${site.name}. Mottagning i ${place}, ${street}, ${postalCode} ${city}. E-post och telefon till ${therapists.map((t) => t.name).join(' och ')}.`}
+  crumbs={crumbs}
+>
+  <PageHeader title="Kontakt" crumbs={crumbs}>Hör av dig via e-post eller telefon så hjälper vi dig vidare.</PageHeader>
+  <section class="section">
+    <div class="wrap">
+      <ul class="card-grid">
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="map-pin" /></span>
+            <h2>Besöksadress</h2>
+            <p>{site.address.place}</p>
+            <address style="font-style:normal">{site.address.street}<br />{site.address.postalCode} {site.address.city}</address>
+            <a class="more" href={site.mapUrl} rel="noopener">Visa på karta <Icon name="arrow-right" size={16} /></a>
+          </article>
+        </li>
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="mail" /></span>
+            <h2>E-post</h2>
+            <p>Allmänna förfrågningar:<br /><a href={`mailto:${site.email}`}>{site.email}</a></p>
+            {therapists.map((t) => <p>{t.name}:<br /><a href={`mailto:${t.email}`}>{t.email}</a></p>)}
+          </article>
+        </li>
+        <li>
+          <article class="card static">
+            <span class="icon-badge"><Icon name="phone" /></span>
+            <h2>Telefon</h2>
+            {therapists.slice().reverse().map((t) => <p>{t.name}:<br /><a href={`tel:${t.tel}`}>{t.phone}</a></p>)}
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,143 @@
+---
+import '@fontsource-variable/josefin-sans';
+import '@fontsource-variable/eb-garamond';
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
+import { site, nav, services, therapists } from '../data';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: Record<string, unknown>[];
+  crumbs?: { label: string; href?: string }[];
+  noindex?: boolean;
+}
+
+const { title, description, jsonLd: extraLd = [], crumbs, noindex = false } = Astro.props;
+const jsonLd = [...extraLd];
+if (crumbs) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [{ label: 'Start', href: '/' }, ...crumbs].map((c, i, all) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.label,
+      item: new URL(i === all.length - 1 ? Astro.url.pathname : c.href ?? '/', site.url).href,
+    })),
+  });
+}
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const fullTitle = title.includes(site.name) ? title : `${title} | ${site.name}`;
+const path = Astro.url.pathname;
+const ogImage = new URL('/og.jpg', site.url).href;
+const ogAlt = 'Hengameh Fransson och Siamak Noroozy, Dialogisk Praxis';
+
+const amounts = services.flatMap((s) => s.prices.map((p) => Number(p.price.replace(/\D/g, ''))));
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': ['MedicalBusiness', 'LocalBusiness'],
+  '@id': `${site.url}/#organization`,
+  name: site.name,
+  url: site.url,
+  email: site.email,
+  telephone: therapists.map((t) => t.tel),
+  image: ogImage,
+  logo: new URL('/og.jpg', site.url).href,
+  priceRange: `${Math.min(...amounts)}–${Math.max(...amounts)} SEK`,
+  medicalSpecialty: 'Psychiatric',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
+    addressLocality: site.address.city,
+    addressCountry: 'SE',
+  },
+  areaServed: 'Stockholm',
+};
+---
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#6f2a88" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="generator" content={Astro.generator} />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
+    {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehållet</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a href="/" class="brand" aria-label={`${site.name} – startsida`}>
+          <Image src={logo} alt="" width={130} loading="eager" />
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Visa eller dölj menyn" />
+        <label for="nav-toggle" class="nav-button" aria-hidden="true">Meny</label>
+        <nav class="site-nav" aria-label="Huvudmeny">
+          <ul>
+            {nav.map((n) => (
+              <li>
+                <a href={n.href} class:list={[{ cta: n.href === '/kontakt/' }]} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <h2>{site.name}</h2>
+          <p>Psykiatri och psykoterapi i Stockholm, med ett dialogiskt förhållningssätt.</p>
+          <address>
+            {site.address.place}<br />
+            {site.address.street}, {site.address.postalCode} {site.address.city}<br />
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </address>
+        </div>
+        <nav aria-label="Sidfot – sidor">
+          <h2>Sidor</h2>
+          <ul>
+            {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+            <li><a href="/priser/">Priser</a></li>
+            <li><a href="/vanliga-fragor/">Vanliga frågor</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Sidfot – tjänster">
+          <h2>Tjänster</h2>
+          <ul>
+            {services.map((s) => <li><a href={`/vi-erbjuder/${s.slug}/`}>{s.title}</a></li>)}
+          </ul>
+        </nav>
+      </div>
+      <p class="copy">&copy; 2024–{new Date().getFullYear()} Dialogisk Praxis AB</p>
+    </footer>
+  </body>
+</html>

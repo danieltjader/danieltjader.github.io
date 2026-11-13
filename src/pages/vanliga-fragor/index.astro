@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import { faq } from '../../data';
+const crumbs = [{ label: 'Vanliga frågor' }];
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<Base
+  title="Vanliga frågor om psykiatri och psykoterapi"
+  description="Svar på vanliga frågor om Dialogisk Praxis i Stockholm: var vi finns, vad ett besök kostar, digitala besök, vilka vi hjälper och hur du bokar."
+  crumbs={crumbs}
+  jsonLd={[faqLd]}
+>
+  <PageHeader title="Vanliga frågor" crumbs={crumbs}>Svar på det vi oftast får frågor om.</PageHeader>
+  <section class="section">
+    <div class="wrap faq prose">
+      {faq.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+          {f.link && <p><a href={f.link.href}>{f.link.label} →</a></p>}
+        </details>
+      ))}
+    </div>
+  </section>
+  <CtaBox title="Hittade du inte svaret?" text="Hör av dig så svarar vi på dina frågor." />
+</Base>

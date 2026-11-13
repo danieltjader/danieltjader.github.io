@@ -1,0 +1,13 @@
+---
+import type { Price } from '../data';
+interface Props { caption: string; prices: Price[] }
+const { caption, prices } = Astro.props;
+---
+
+<table class="price-table">
+  <caption>{caption}</caption>
+  <thead><tr><th scope="col">Tjänst</th><th scope="col">Pris</th></tr></thead>
+  <tbody>
+    {prices.map((p) => <tr><th scope="row">{p.label}</th><td>{p.price}</td></tr>)}
+  </tbody>
+</table>

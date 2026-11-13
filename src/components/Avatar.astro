@@ -1,0 +1,14 @@
+---
+import { Image } from 'astro:assets';
+interface Props { image: ImageMetadata; alt: string; focus: string; size?: number }
+const { image, alt, focus, size = 128 } = Astro.props;
+---
+
+<span class="avatar" style={`--size:${size}px; --focus:${focus}`}>
+  <Image src={image} alt={alt} width={size * 3} height={Math.round(size * 2.25)} widths={[size * 2, size * 3]} sizes={`${size}px`} loading="lazy" />
+</span>
+
+<style>
+  .avatar { display: block; width: var(--size); height: var(--size); border-radius: 50%; overflow: hidden; margin-bottom: 1rem; box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--tint), var(--shadow); background: var(--tint); }
+  .avatar :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus); transform: scale(1.1); transform-origin: var(--focus); }
+</style>

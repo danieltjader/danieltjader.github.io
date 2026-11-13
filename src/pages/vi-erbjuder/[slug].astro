@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBox from '../../components/CtaBox.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import Icon from '../../components/Icon.astro';
+import { services, site } from '../../data';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+const others = services.filter((o) => o.slug !== s.slug);
+const crumbs = [{ label: 'Vi erbjuder', href: '/vi-erbjuder/' }, { label: s.title }];
+---
+
+<Base
+  title={`${s.title} i Stockholm`}
+  description={s.description}
+  crumbs={crumbs}
+  jsonLd={[{
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: s.title,
+    description: s.description,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: 'Stockholm',
+  }]}
+>
+  <PageHeader title={s.title} crumbs={crumbs}>{s.summary}</PageHeader>
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        {s.body.map((p) => <p>{p}</p>)}
+        {s.prices.length > 0 && <PriceTable caption="Priser" prices={s.prices} />}
+        {s.prices.length > 0 && <p class="note"><Icon name="banknote" size={18} /> {site.vatNote}</p>}
+      </div>
+      <aside class="aside-card">
+        <span class="icon-badge"><Icon name={s.icon} /></span>
+        <h2>Boka eller fråga</h2>
+        <p>Kontakta oss så berättar vi mer och hittar en tid som passar.</p>
+        <a class="button" href="/kontakt/">Kontakta oss <Icon name="arrow-right" size={18} /></a>
+      </aside>
+    </div>
+  </section>
+  <section class="section tint" aria-labelledby="fler">
+    <div class="wrap">
+      <h2 id="fler">Fler tjänster</h2>
+      <ul class="card-grid">
+        {others.map((o) => (
+          <li>
+            <a class="card" href={`/vi-erbjuder/${o.slug}/`} style="text-decoration:none;color:inherit">
+              <span class="icon-badge"><Icon name={o.icon} /></span>
+              <h3>{o.title}</h3>
+              <p>{o.summary}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+  <CtaBox />
+</Base>

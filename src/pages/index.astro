@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import CtaBox from '../components/CtaBox.astro';
+import Icon from '../components/Icon.astro';
+import Avatar from '../components/Avatar.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import hero from '../assets/terapeuter.webp';
+import samtalsrum from '../assets/samtalsrum.webp';
+import { services, therapists, site } from '../data';
+
+const people = therapists.map((t) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: t.name,
+  jobTitle: t.role,
+  email: t.email,
+  url: `${site.url}/terapeuter/${t.slug}/`,
+  worksFor: { '@id': `${site.url}/#organization` },
+}));
+---
+
+<Base
+  title="Dialogisk Praxis – psykiatri och psykoterapi i Stockholm"
+  description="Psykiatrisk vård, psykoterapi, par- och familjeterapi på Östermalm i Stockholm. Möt psykiater Hengameh Fransson och psykoterapeut Siamak Noroozy."
+  jsonLd={people}
+>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media">
+      <Image class="hero-img" src={hero} alt="Hengameh Fransson och Siamak Noroozy" widths={[640, 960, 1280, 1600]} sizes="100vw" loading="eager" fetchpriority="high" />
+      <div class="hero-overlay">
+        <div class="wrap">
+          <div class="hero-content">
+            <p class="eyebrow">Östermalm, Stockholm</p>
+            <h1 id="hero-title">Psykiatri och psykoterapi i Stockholm</h1>
+            <p class="lead">Vi möter barn, ungdomar och vuxna med ett dialogiskt förhållningssätt – där omtanken kommer före tanken.</p>
+            <div class="button-row">
+              <a class="button" href="/kontakt/">Kontakta oss <Icon name="arrow-right" size={18} /></a>
+              <a class="button secondary" href="/vi-erbjuder/">Se vad vi erbjuder</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-trust">
+      <div class="wrap">
+        <ul class="trust">
+          <li><Icon name="stethoscope" size={20} /> Specialistläkare i psykiatri</li>
+          <li><Icon name="shield-check" size={20} /> Legitimerad psykoterapeut</li>
+          <li><Icon name="monitor" size={20} /> Fysiskt eller digitalt besök</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="tjanster">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">För privatpersoner</p>
+        <h2 id="tjanster">Vad vi erbjuder</h2>
+        <p>Psykiatrisk utredning och behandling, psykoterapi samt par- och familjeterapi. Ofta är det mest givande att varva familjesamtal med enskilda samtal, och vice versa.</p>
+      </div>
+      <ServiceCards services={services} />
+      <p style="margin-top:1.5rem"><a href="/priser/">Se våra priser</a></p>
+    </div>
+  </section>
+
+  <section class="section tint" aria-labelledby="synsatt">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">Så jobbar vi</p>
+        <h2 id="synsatt" class="quote">Omtanken föregår tanken.</h2>
+        <p class="prose">Vår praktik bygger på dialogiska teorier – på relationer mellan människor och på vikten av den Andres roll i hur vi skapar mening.</p>
+        <p><a class="button secondary" href="/sa-jobbar-vi/">Läs om vårt synsätt</a></p>
+      </div>
+      <Image class="portrait" src={samtalsrum} alt="Samtalsrum på mottagningen" widths={[480, 720, 960]} sizes="(min-width: 860px) 500px, 100vw" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="terapeuter">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Teamet</p>
+        <h2 id="terapeuter">Möt våra terapeuter</h2>
+      </div>
+      <ul class="card-grid two">
+        {therapists.map((t) => (
+          <li>
+            <article class="card">
+              <Avatar image={t.image} alt={t.alt} focus={t.focus} />
+              <p class="role">{t.role}</p>
+              <h3>{t.name}</h3>
+              <p>{t.short}</p>
+              <a class="more" href={`/terapeuter/${t.slug}/`}>Läs mer <Icon name="arrow-right" size={16} /><span class="sr-only"> om {t.name}</span></a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section tint-green" aria-labelledby="org">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">För organisationer</p>
+        <h2 id="org">Samarbete med socialtjänst, vård och försäkring</h2>
+        <p class="prose">Vi erbjuder handledning, utbildning, utredning och nätverksarbete till socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.</p>
+        <p><a class="button secondary" href="/for-organisationer/">Läs mer för organisationer</a></p>
+      </div>
+      <ul class="info-list">
+        <li><span class="icon-badge"><Icon name="clipboard-list" size={22} /></span><div><strong>Utredning</strong>Psykologisk och psykosocial utredning</div></li>
+        <li><span class="icon-badge"><Icon name="graduation-cap" size={22} /></span><div><strong>Utbildning och handledning</strong>Skräddarsydd efter er verksamhet</div></li>
+        <li><span class="icon-badge"><Icon name="users" size={22} /></span><div><strong>Nätverksarbete</strong>Samarbete runt personen</div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="hitta">
+    <div class="wrap split even">
+      <div>
+        <p class="eyebrow">Hitta hit</p>
+        <h2 id="hitta">Mottagning på Östermalm</h2>
+        <ul class="info-list">
+          <li>
+            <span class="icon-badge"><Icon name="map-pin" size={22} /></span>
+            <div><strong>{site.address.place}</strong><address>{site.address.street}, {site.address.postalCode} {site.address.city}</address><a href={site.mapUrl} rel="noopener">Visa på karta</a></div>
+          </li>
+          <li>
+            <span class="icon-badge"><Icon name="mail" size={22} /></span>
+            <div><strong>E-post</strong><a href={`mailto:${site.email}`}>{site.email}</a></div>
+          </li>
+          <li>
+            <span class="icon-badge"><Icon name="phone" size={22} /></span>
+            <div><strong>Telefon</strong>{therapists.map((t) => <span>{t.name.split(' ')[0]}: <a href={`tel:${t.tel}`}>{t.phone}</a><br /></span>)}</div>
+          </li>
+        </ul>
+      </div>
+      <div class="aside-card" style="position:static">
+        <h2>Vanliga frågor</h2>
+        <p>Vad kostar ett besök? Kan jag träffa er digitalt? Svar på det vi oftast får frågor om.</p>
+        <a class="button secondary" href="/vanliga-fragor/">Läs vanliga frågor</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBox />
+</Base>
