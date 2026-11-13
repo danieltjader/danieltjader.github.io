@@ -34,8 +34,6 @@ if (crumbs) {
   });
 }
 const canonical = new URL(Astro.url.pathname, site.url).href;
-const withBrand = `${title} | ${site.name}`;
-const fullTitle = title.includes(site.name) || withBrand.length > 65 ? title : withBrand;
 const path = Astro.url.pathname;
 const ogImage = new URL('/og.jpg', site.url).href;
 const ogAlt = `${therapists.map((t) => t.name).join(' / ')}, ${site.name}`;
@@ -76,7 +74,7 @@ const organization = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
@@ -90,7 +88,7 @@ const organization = {
     <meta property="og:locale" content={c.ogLocale} />
     {otherLangs.map((a) => <meta property="og:locale:alternate" content={getContent(a.lang).ogLocale} />)}
     <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />

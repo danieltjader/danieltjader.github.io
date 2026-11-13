@@ -35,7 +35,7 @@ Regler:
 
 ## SEO
 
-- Unik titel (visas utan varumärke om den blir längre än 65 tecken), beskrivning (max ~160 tecken), canonical och Open Graph/Twitter-kort per sida
+- Unik titel (utan varumärkessuffix), beskrivning (max ~160 tecken), canonical och Open Graph/Twitter-kort per sida
 - `hreflang` för sv/en/fa och `x-default` (svenska) på alla sidor, samt `og:locale:alternate`
 - Sitemap (`/sitemap-index.xml`) med språkalternativ via `@astrojs/sitemap`; 404 är `noindex` och ingår inte
 - JSON-LD: `MedicalBusiness`/`LocalBusiness` (på alla sidor), `Person`, `BreadcrumbList`, `FAQPage`, `Service`
