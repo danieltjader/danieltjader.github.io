@@ -7,6 +7,7 @@ interface Address { street: string; postalCode: string; city: string; place: str
 export const sv = {
   code: 'sv' as string,
   htmlLang: 'sv',
+  dir: 'ltr' as string,
   ogLocale: 'sv_SE',
   short: 'SV',
   native: 'Svenska',
@@ -30,6 +31,8 @@ export const sv = {
     showOnMap: 'Visa på karta',
     email: 'E-post',
     phone: 'Telefon',
+    languagesLabel: 'Språk',
+    langNames: { sv: 'svenska', en: 'engelska', fa: 'persiska' },
     footer: {
       pagesNav: 'Sidfot – sidor',
       pagesTitle: 'Sidor',
@@ -63,7 +66,7 @@ export const sv = {
       lead: 'Vi möter barn, ungdomar och vuxna med ett dialogiskt förhållningssätt – där omtanken kommer före tanken.',
       secondary: 'Se vad vi erbjuder',
     },
-    trust: ['Specialistläkare i psykiatri', 'Legitimerad psykoterapeut', 'Fysiskt eller digitalt besök'],
+    trust: ['Specialistläkare i psykiatri', 'Legitimerad psykoterapeut', 'Fysiskt eller digitalt besök', 'Svenska, engelska och persiska'],
     services: {
       eyebrow: 'För privatpersoner',
       h2: 'Vad vi erbjuder',
@@ -109,10 +112,10 @@ export const sv = {
   },
 
   servicesPage: {
-    title: 'Vi erbjuder – psykiatri, psykoterapi och intyg',
-    description: 'Psykiatrisk vård, psykoterapi, par- och familjerådgivning, second opinion och intyg till myndigheter i Stockholm. Se vad vi erbjuder, vad det kostar och hur du bokar.',
+    title: 'Vi erbjuder – psykiatri, psykoterapi, familjeterapi och intyg',
+    description: 'Psykiatrisk bedömning, psykoterapi, familjeterapi, par- och familjerådgivning, second opinion och intyg i Stockholm. Även handledning för organisationer.',
     h1: 'Vi erbjuder',
-    lead: 'Utredning, behandling och samtal för barn, ungdomar och vuxna – fysiskt eller digitalt.',
+    lead: 'Psykiatrisk bedömning, psykoterapi, familjeterapi och rådgivning för barn, ungdomar, par och vuxna – fysiskt eller digitalt. Vi arbetar också med organisationer.',
     orgCard: { title: 'Utredning, utbildning och handledning', summary: 'För företag och organisationer: utredning, föreläsning, utbildning och handledning.' },
     orgs: {
       h2: 'Företag och organisationer',
@@ -171,6 +174,7 @@ export const sv = {
     { id: 'digital', q: 'Kan jag träffa er digitalt?', a: () => 'Ja, du kan välja mellan fysiskt eller digitalt besök vid psykiatrisk vård.' },
     { id: 'price', q: 'Vad kostar ett besök?', a: (_: Address, p: { therapy: string; student: string; doctor: string; vat: string }) => `Psykoterapi 45 minuter kostar ${p.therapy} (studentpris ${p.student}). Läkarbesök på 60 minuter kostar ${p.doctor}. ${p.vat}`, link: { to: 'prices' as const, label: 'Se hela prislistan' } },
     { id: 'who', q: 'Vilka kan ni hjälpa?', a: () => 'Vi möter barn, ungdomar och vuxna, enskilt, som par eller som familj. Vi arbetar också med institutioner som socialtjänst, behandlingshem, försäkringsbolag och vårdcentraler.' },
+    { id: 'languages', q: 'På vilka språk kan jag få hjälp?', a: () => 'Vi arbetar på svenska, engelska och persiska. Meddela gärna vilket språk du vill ha samtalet på när du kontaktar oss.' },
     { id: 'book', q: 'Hur bokar jag?', a: () => 'Kontakta oss via e-post eller telefon. Kontaktuppgifterna finns på kontaktsidan.', link: { to: 'contact' as const, label: 'Gå till kontaktsidan' } },
   ],
 
@@ -226,7 +230,6 @@ export const sv = {
     description: 'Sidan du letar efter finns inte. Gå till startsidan eller kontakta Dialogisk Praxis i Stockholm.',
     text: 'Sidan du letar efter finns inte eller har flyttats.',
     button: 'Till startsidan',
-    otherLang: 'Page not found – go to the English site',
   },
 
   therapists: [

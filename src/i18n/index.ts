@@ -1,13 +1,14 @@
 import { site, therapistBase, serviceBase } from '../data';
 import { sv } from './sv';
 import { en } from './en';
+import { fa } from './fa';
 import type { Content } from './sv';
 
-export const locales = ['sv', 'en'] as const;
+export const locales = ['sv', 'en', 'fa'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'sv';
 
-const contents: Record<Locale, Content> = { sv, en };
+const contents: Record<Locale, Content> = { sv, en, fa };
 export const getContent = (lang: Locale) => contents[lang];
 
 export function langFromUrl(url: URL): Locale {
@@ -19,14 +20,14 @@ export type PageKey = 'home' | 'therapists' | 'services' | 'prices' | 'organisat
 
 // URL-segment per sida och språk. Lägg till ett språk här och i src/i18n/.
 export const segments: Record<PageKey, Record<Locale, string>> = {
-  home: { sv: '', en: '' },
-  therapists: { sv: 'terapeuter', en: 'therapists' },
-  services: { sv: 'vi-erbjuder', en: 'services' },
-  prices: { sv: 'priser', en: 'prices' },
-  organisations: { sv: 'for-organisationer', en: 'organisations' },
-  faq: { sv: 'vanliga-fragor', en: 'faq' },
-  approach: { sv: 'sa-jobbar-vi', en: 'our-approach' },
-  contact: { sv: 'kontakt', en: 'contact' },
+  home: { sv: '', en: '', fa: '' },
+  therapists: { sv: 'terapeuter', en: 'therapists', fa: 'therapists' },
+  services: { sv: 'vi-erbjuder', en: 'services', fa: 'services' },
+  prices: { sv: 'priser', en: 'prices', fa: 'prices' },
+  organisations: { sv: 'for-organisationer', en: 'organisations', fa: 'organisations' },
+  faq: { sv: 'vanliga-fragor', en: 'faq', fa: 'faq' },
+  approach: { sv: 'sa-jobbar-vi', en: 'our-approach', fa: 'our-approach' },
+  contact: { sv: 'kontakt', en: 'contact', fa: 'contact' },
 };
 
 export const navKeys: PageKey[] = ['therapists', 'services', 'organisations', 'approach', 'contact'];

@@ -25,6 +25,7 @@ const crumbs = [{ label: c.pageNames.therapists, href: p('therapists') }, { labe
     jobTitle: t.role,
     email: t.email,
     telephone: t.tel,
+    knowsLanguage: t.languages,
     worksFor: { '@id': `${site.url}/#organization` },
   }]}
 >
@@ -38,6 +39,7 @@ const crumbs = [{ label: c.pageNames.therapists, href: p('therapists') }, { labe
         <Image class="portrait" src={t.image} alt={t.alt} widths={[400, 640]} sizes="(min-width: 860px) 360px, 100vw" loading="eager" style="margin-bottom:1.25rem" />
         <h2>{c.therapistDetail.contact(t.name.split(' ')[0])}</h2>
         <ul class="info-list">
+          <li><span class="icon-badge"><Icon name="languages" size={22} /></span><div><strong>{c.ui.languagesLabel}</strong>{t.languages.map((l) => c.ui.langNames[l]).join(', ')}</div></li>
           <li><span class="icon-badge"><Icon name="mail" size={22} /></span><div><strong>{c.ui.email}</strong><a href={`mailto:${t.email}`}>{t.email}</a></div></li>
           <li><span class="icon-badge"><Icon name="phone" size={22} /></span><div><strong>{c.ui.phone}</strong><a href={`tel:${t.tel}`}>{c.code === 'sv' ? t.phone : t.phoneIntl}</a></div></li>
         </ul>

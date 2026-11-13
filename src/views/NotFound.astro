@@ -1,18 +1,21 @@
 ---
 import Base from '../layouts/Base.astro';
-import { getContent, pathFor } from '../i18n';
+import { getContent, locales, pathFor } from '../i18n';
 const c = getContent('sv');
-const en = getContent('en');
+const blocks = locales.map((l) => ({ lang: l, c: getContent(l) }));
 ---
 
 <Base title={c.notFound.title} description={c.notFound.description} noindex>
   <section class="section">
     <div class="wrap prose">
       <p class="eyebrow">404</p>
-      <h1>{c.notFound.title}</h1>
-      <p>{c.notFound.text}</p>
-      <p><a class="button" href={pathFor('sv', 'home')}>{c.notFound.button}</a></p>
-      <p lang="en"><a href={pathFor('en', 'home')}>{c.notFound.otherLang}</a></p>
+      {blocks.map((b) => (
+        <div lang={b.c.htmlLang} dir={b.c.dir} class="notfound-block">
+          <h1>{b.c.notFound.title}</h1>
+          <p>{b.c.notFound.text}</p>
+          <p><a class="button" href={pathFor(b.lang, 'home')}>{b.c.notFound.button}</a></p>
+        </div>
+      ))}
     </div>
   </section>
 </Base>

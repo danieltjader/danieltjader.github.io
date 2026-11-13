@@ -40,7 +40,7 @@ Kontakt sker via `mailto:` och `tel:`, det finns inget formulär eller backend.
 
 ## Språk (i18n)
 
-- Svenska ligger på `/`, övriga språk under `/<kod>/` (t.ex. `/en/`).
-- Texter: `src/i18n/sv.ts` och `src/i18n/en.ts`. Språkneutral data (kontakt, priser): `src/data.ts`.
+- Svenska ligger på `/`, övriga språk under `/<kod>/` (`/en/`, `/fa/`).
+- Texter: `src/i18n/sv.ts`, `en.ts` och `fa.ts` (persiska, höger-till-vänster via `dir: 'rtl'`). Språkneutral data (kontakt, priser): `src/data.ts`.
 - Nytt språk: skapa `src/i18n/<kod>.ts` (kopiera `en.ts`), registrera i `src/i18n/index.ts` (`locales`, `contents`, `segments`) och lägg till i `sitemap`-`i18n` i `astro.config.mjs`.
 - Sidmallar: `src/views/`, routing: `src/pages/[...path].astro`.

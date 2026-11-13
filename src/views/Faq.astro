@@ -23,7 +23,7 @@ const faqLd = {
         <details>
           <summary>{f.q}</summary>
           <p>{f.a}</p>
-          {f.link && <p><a href={f.link.href}>{f.link.label} →</a></p>}
+          {f.link && <p><a href={f.link.href}>{f.link.label} {c.dir === 'rtl' ? '←' : '→'}</a></p>}
         </details>
       ))}
     </div>

@@ -14,6 +14,9 @@ export const site = {
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=Artillerigatan+28+114+51+Stockholm',
 };
 
+export const spokenLanguages = ['sv', 'en', 'fa'] as const;
+type Lang = (typeof spokenLanguages)[number];
+
 export const therapistBase = [
   {
     slug: 'hengameh-fransson',
@@ -24,6 +27,7 @@ export const therapistBase = [
     phone: '076-252 22 43',
     phoneIntl: '+46 76 252 22 43',
     tel: '+46762522243',
+    languages: ['sv', 'en', 'fa'] as Lang[],
   },
   {
     slug: 'siamak-noroozy',
@@ -34,6 +38,7 @@ export const therapistBase = [
     phone: '073-708 01 30',
     phoneIntl: '+46 73 708 01 30',
     tel: '+46737080130',
+    languages: ['sv', 'fa'] as Lang[],
   },
 ] as const;
 

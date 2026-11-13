@@ -4,6 +4,7 @@ import type { Content, Section } from './sv';
 export const en: Content = {
   code: 'en',
   htmlLang: 'en',
+  dir: 'ltr',
   ogLocale: 'en_GB',
   short: 'EN',
   native: 'English',
@@ -27,6 +28,8 @@ export const en: Content = {
     showOnMap: 'Show on map',
     email: 'Email',
     phone: 'Phone',
+    languagesLabel: 'Languages',
+    langNames: { sv: 'Swedish', en: 'English', fa: 'Persian' },
     footer: {
       pagesNav: 'Footer – pages',
       pagesTitle: 'Pages',
@@ -60,7 +63,7 @@ export const en: Content = {
       lead: 'We meet children, young people and adults with a dialogical approach – where care comes before thought.',
       secondary: 'See what we offer',
     },
-    trust: ['Specialist physician in psychiatry', 'Licensed psychotherapist', 'In-person or online visits'],
+    trust: ['Specialist physician in psychiatry', 'Licensed psychotherapist', 'In-person or online visits', 'Swedish, English and Persian'],
     services: {
       eyebrow: 'For individuals',
       h2: 'What we offer',
@@ -106,10 +109,10 @@ export const en: Content = {
   },
 
   servicesPage: {
-    title: 'Services – psychiatry, psychotherapy and certificates',
-    description: 'Psychiatric care, psychotherapy, couples and family therapy, second opinions and certificates for authorities in Stockholm. See what we offer, what it costs and how to book.',
+    title: 'Services – psychiatry, psychotherapy, family therapy and certificates',
+    description: 'Psychiatric assessment, psychotherapy, family and couples counselling, second opinions and certificates in Stockholm. Also supervision for organisations.',
     h1: 'Services',
-    lead: 'Assessment, treatment and therapy for children, young people and adults – in person or online.',
+    lead: 'Psychiatric assessment, psychotherapy, family therapy and counselling for children, young people, couples and adults – in person or online. We also work with organisations.',
     orgCard: { title: 'Assessment, training and supervision', summary: 'For companies and organisations: assessments, lectures, training and supervision.' },
     orgs: {
       h2: 'Companies and organisations',
@@ -168,6 +171,7 @@ export const en: Content = {
     { id: 'digital', q: 'Can I meet you online?', a: () => 'Yes, for psychiatric care you can choose between an in-person or an online visit.' },
     { id: 'price', q: 'What does a visit cost?', a: (_, p) => `Psychotherapy, 45 minutes, costs ${p.therapy} (student price ${p.student}). A 60-minute doctor visit costs ${p.doctor}. ${p.vat}`, link: { to: 'prices', label: 'See the full price list' } },
     { id: 'who', q: 'Who can you help?', a: () => 'We see children, young people and adults – individually, as couples or as families. We also work with institutions such as social services, residential care homes, insurance companies and primary care centres.' },
+    { id: 'languages', q: 'Which languages can I get help in?', a: () => 'We work in Swedish, English and Persian. Let us know which language you prefer when you contact us.' },
     { id: 'book', q: 'How do I book?', a: () => 'Contact us by email or phone. Contact details are on the contact page.', link: { to: 'contact', label: 'Go to the contact page' } },
   ],
 
@@ -223,7 +227,6 @@ export const en: Content = {
     description: 'The page you are looking for does not exist. Go to the home page or contact Dialogisk Praxis in Stockholm.',
     text: 'The page you are looking for does not exist or has been moved.',
     button: 'Go to the home page',
-    otherLang: 'Sidan hittades inte – till den svenska sidan',
   },
 
   therapists: [

@@ -1,11 +1,12 @@
 ---
 import '@fontsource-variable/josefin-sans';
 import '@fontsource-variable/eb-garamond';
+import '@fontsource-variable/vazirmatn';
 import '../styles/global.css';
 import { Image } from 'astro:assets';
 import Icon from '../components/Icon.astro';
 import logo from '../assets/logo.webp';
-import { site } from '../data';
+import { site, spokenLanguages } from '../data';
 import { useI18n, locales, defaultLocale, pathFor, navKeys, footerKeys, getContent, type PageKey } from '../i18n';
 
 interface Props {
@@ -63,11 +64,12 @@ const organization = {
     addressCountry: 'SE',
   },
   areaServed: 'Stockholm',
+  availableLanguage: [...spokenLanguages],
 };
 ---
 
 <!doctype html>
-<html lang={c.htmlLang}>
+<html lang={c.htmlLang} dir={c.dir}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -114,11 +116,18 @@ const organization = {
                 <a href={p(k)} class:list={[{ cta: k === 'contact' }]} aria-current={path.startsWith(p(k)) ? 'page' : undefined}>{c.pageNames[k as keyof typeof c.pageNames]}</a>
               </li>
             ))}
-            {otherLangs.map((a) => (
-              <li>
-                <a class="lang-switch" href={a.path} hreflang={a.lang} lang={a.lang} aria-label={`${c.ui.langSwitch}: ${getContent(a.lang).native}`}><Icon name="languages" size={18} /><span aria-hidden="true">{getContent(a.lang).native}</span></a>
+            {alternates.length > 0 && (
+              <li class="lang-menu">
+                <details>
+                  <summary aria-label={c.ui.langSwitch}><Icon name="languages" size={18} /><span>{c.native}</span></summary>
+                  <ul>
+                    {alternates.map((a) => (
+                      <li><a href={a.path} hreflang={a.lang} lang={a.lang} aria-current={a.lang === lang ? 'true' : undefined}>{getContent(a.lang).native}</a></li>
+                    ))}
+                  </ul>
+                </details>
               </li>
-            ))}
+            )}
           </ul>
         </nav>
       </div>
